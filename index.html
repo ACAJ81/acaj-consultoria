@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACAJ | Consultoria e Inteligência Mercadológica</title>
+    <style>
+        /* RESET E FONTES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* VARIÁVEIS DE CORES - Mantendo a confiança, mas com contrastes suaves */
+        :root {
+            --cor-primaria: #1A365D; /* Azul marinho escuro e sólido (Segurança) */
+            --cor-secundaria: #4A5568; /* Cinza ardósia (Acessibilidade/Modernidade) */
+            --cor-destaque: #D69E2E; /* Dourado suave (Valor/Qualidade) */
+            --cor-fundo: #F7FAFC;
+            --cor-texto: #2D3748;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.7;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--cor-destaque);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--cor-destaque);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #E2E8F0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--cor-destaque);
+        }
+
+        /* SEÇÃO HERO (Acolhimento e Autoridade) */
+        .hero {
+            background-color: #2B6CB0;
+            background-image: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+            color: white;
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #E2E8F0;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* SEÇÕES DE CONTEÚDO */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--cor-primaria);
+            font-weight: 700;
+        }
+
+        /* GRID DOS SERVIÇOS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--cor-primaria);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-top-color: var(--cor-destaque);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--cor-primaria);
+        }
+
+        .card p {
+            color: var(--cor-secundaria);
+            font-size: 1rem;
+        }
+
+        /* VITRINE DE ESTUDOS */
+        .estudos-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #E2E8F0;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #EDF2F7;
+            color: var(--cor-secundaria);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+
+        .item-destaque {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #F7FAFC;
+            border-left: 4px solid var(--cor-destaque);
+            text-align: left;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: var(--cor-primaria);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            color: #A0AEC0;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ACAJ<span>.</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#expertise">Como Posso Ajudar</a></li>
+                <li><a href="#estudos">Meus Pareceres</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Inteligência Mercadológica para Decisões Seguras</h1>
+        <p>Do investidor iniciante ao avançado: ofereço clareza, embasamento técnico e segurança jurídica para que o seu próximo passo no mercado imobiliário seja o mais rentável e protegido possível.</p>
+    </section>
+
+    <section id="expertise">
+        <h2 class="section-title">Minha Expertise à Sua Disposição</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>O Valor Real do Imóvel</h3>
+                <p>Muitas vezes, o preço pedido não reflete a realidade. Elaboro Pareceres Técnicos de Avaliação Mercadológica (PTAM) baseados em metodologia científica e amostras reais da região, garantindo que você compre ou venda pelo preço justo e tecnicamente correto.</p>
+            </div>
+            <div class="card">
+                <h3>Análise de Viabilidade e Zoneamento</h3>
+                <p>Antes de adquirir um lote ou imóvel comercial, é vital entender o que a prefeitura permite construir ou operar ali. Analiso a legislação urbana e o plano diretor para evitar surpresas jurídicas e financeiras no seu projeto.</p>
+            </div>
+            <div class="card">
+                <h3>Consultoria e Direcionamento</h3>
+                <p>Tem capital, mas não sabe por onde começar? Ajudo a interpretar as tendências do mercado, cruzando seus objetivos financeiros com as melhores oportunidades disponíveis, sempre focando na proteção do seu patrimônio.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="estudos" style="background-color: #EDF2F7;">
+        <h2 class="section-title">Estudos e Pareceres em Andamento</h2>
+        <div class="estudos-container">
+            <p>A transparência e o rigor técnico são os pilares do meu trabalho. Atualmente, estou em campo e nos bastidores compilando dados mercadológicos precisos.</p>
+            
+            <div class="item-destaque">
+                <h4>Em breve:</h4>
+                <p>Parecer Técnico de Avaliação Mercadológica (PTAM) detalhado de um imóvel comercial com foco na região de Santo André, SP. O estudo incluirá análise de zoneamento, relatório fotográfico e cruzamento de dados da região.</p>
+            </div>
+
+            <span class="badge">Status: Estruturação de dados e elaboração de laudos em andamento.</span>
+        </div>
+    </section>
+
+    <footer>
+        <h2>ACAJ Consultoria</h2>
+        <p>Inteligência Mercadológica e Proteção Patrimonial</p>
+        <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
