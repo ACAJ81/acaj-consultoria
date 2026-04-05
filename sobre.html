@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre a ACAJ | Consultoria e Inteligência Mercadológica</title>
+    <style>
+        /* RESET E FONTES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* VARIÁVEIS DE CORES */
+        :root {
+            --cor-primaria: #1A365D; 
+            --cor-secundaria: #4A5568; 
+            --cor-destaque: #D69E2E; 
+            --cor-fundo: #F7FAFC;
+            --cor-texto: #2D3748;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* CABEÇALHO COM MENUS SUSPENSOS */
+        header {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--cor-destaque);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--cor-destaque);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #E2E8F0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover, nav a.ativo {
+            color: var(--cor-destaque);
+        }
+
+        /* ESTILOS DO MENU DROPDOWN (SUBPÁGINAS) */
+        .dropdown {
+            position: relative;
+        }
+
+        .seta {
+            font-size: 0.6rem;
+            margin-left: 5px;
+            vertical-align: middle;
+            color: #A0AEC0;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--cor-primaria);
+            min-width: 250px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-top: 3px solid var(--cor-destaque);
+            border-radius: 0 0 6px 6px;
+            flex-direction: column;
+            gap: 0;
+            padding: 0.5rem 0;
+            z-index: 100;
+        }
+
+        .dropdown:hover .submenu {
+            display: flex;
+        }
+
+        .submenu li {
+            width: 100%;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background-color 0.3s, color 0.3s, padding-left 0.3s;
+        }
+
+        .submenu li:last-child a {
+            border-bottom: none;
+        }
+
+        .submenu a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--cor-destaque);
+            padding-left: 1.8rem;
+        }
+
+        /* SEÇÃO HERO INTERNA */
+        .hero-interna {
+            background-color: #2B6CB0;
+            background-image: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero-interna h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CONTEÚDO PRINCIPAL DA PÁGINA SOBRE */
+        .conteudo-sobre {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            flex: 1;
+        }
+
+        .conteudo-sobre h2 {
+            color: var(--cor-primaria);
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .conteudo-sobre p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--cor-secundaria);
+        }
+
+        /* DESTAQUE DA ESTRUTURA (SLU) */
+        .box-slu {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--cor-destaque);
+            margin: 2.5rem 0;
+        }
+
+        .box-slu ul {
+            list-style: none;
+        }
+
+        .box-slu ul li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--cor-secundaria);
+        }
+
+        .box-slu ul li::before {
+            content: "✦";
+            color: var(--cor-destaque);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .box-slu ul li strong {
+            color: var(--cor-primaria);
+        }
+
+        /* MISSÃO E VALORES (3 Cards Alinhados e Maiores) */
+        .grid-valores {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: stretch;
+        }
+
+        .card-valor {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--cor-primaria);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-valor:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--cor-destaque);
+        }
+
+        .card-valor h3 {
+            color: var(--cor-primaria);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card-valor p {
+            font-size: 1rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        /* RESPONSIVIDADE PARA OS CARDS DE VALORES */
+        @media (max-width: 900px) {
+            .grid-valores {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid-valores {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: var(--cor-primaria);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            color: #A0AEC0;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ACAJ<span>.</span></div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html">Início <span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="sobre.html" class="ativo">Sobre a ACAJ</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="index.html#expertise">Como Posso Ajudar <span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="ptam.html">Avaliação Mercadológica (PTAM)</a></li>
+                        <li><a href="zoneamento.html">Análise de Viabilidade Urbana</a></li>
+                        <li><a href="consultoria.html">Consultoria de Investimento</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="index.html#estudos">Meus Pareceres <span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="case-santo-andre.html">Case Comercial: Santo André</a></li>
+                        <li><a href="pesquisas.html">Pesquisas de Campo</a></li>
+                        <li><a href="andamento.html">Em Andamento</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-interna">
+        <h1>Sobre a ACAJ</h1>
+        <p>Conheça a estrutura e os princípios que guiam nossas análises.</p>
+    </section>
+
+    <main class="conteudo-sobre">
+        
+        <h2>A nossa essência</h2>
+        <p>A ACAJ nasceu do desejo de oferecer soluções em <strong>inteligência mercadológica e avaliações imobiliárias</strong> com excelência, agilidade e um olhar humano. Entendemos que cada cliente é único, cada patrimônio tem sua história, e por isso você merece um atendimento direto, sem burocracias desnecessárias.</p>
+
+        <h2>Nossa Estrutura: Inovação e Segurança</h2>
+        <p>Somos constituídos sob o modelo de <strong>Sociedade Limitada Unipessoal (SLU)</strong>. Mas o que isso significa para você, nosso cliente?</p>
+        
+        <div class="box-slu">
+            <p style="margin-bottom: 1.5rem;">A SLU é um dos formatos empresariais mais modernos do Brasil. Ela nos permite operar com a agilidade de um empreendedor individual, mas com o peso, o profissionalismo e a segurança jurídica de uma empresa de responsabilidade limitada. Na prática, isso se traduz em:</p>
+            <ul>
+                <li><strong>Decisões Ágeis:</strong> Sem a necessidade de consultar um quadro de sócios, nossas soluções e adaptações ao seu projeto são muito mais rápidas.</li>
+                <li><strong>Atendimento Direto:</strong> A visão do fundador está presente em cada entrega, garantindo um padrão de qualidade inegociável.</li>
+                <li><strong>Transparência e Credibilidade:</strong> Atuamos com total regularidade e responsabilidade, garantindo segurança em todos os nossos contratos e laudos.</li>
+            </ul>
+        </div>
+
+        <h2>Nossa Missão</h2>
+        <p>Entregar clareza, embasamento técnico e segurança jurídica para investidores e proprietários, garantindo que suas decisões no mercado imobiliário sejam precisas, rentáveis e protegidas.</p>
+
+        <h2>Nossos Valores</h2>
+        <div class="grid-valores">
+            <div class="card-valor">
+                <h3>Comprometimento</h3>
+                <p>A entrega final de cada laudo ou consultoria leva a nossa assinatura e reputação como garantia.</p>
+            </div>
+            <div class="card-valor">
+                <h3>Inovação</h3>
+                <p>Buscamos sempre as formas mais modernas e científicas de resolver problemas e precificar ativos.</p>
+            </div>
+            <div class="card-valor">
+                <h3>Proximidade</h3>
+                <p>Construímos uma relação de parceria verdadeira e transparente com cada cliente e investidor.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <h2>ACAJ Consultoria</h2>
+        <p>Inteligência Mercadológica e Proteção Patrimonial</p>
+        <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
