@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACAJ | Consultoria e Inteligência Mercadológica</title>
+    <title>ACAJ | Consultoria e Inteligência Comercial</title>
     <style>
         /* RESET E FONTES */
         * {
@@ -69,9 +69,9 @@
             color: var(--cor-destaque);
         }
 
-        /* --- NOVO: ESTILOS DO MENU DROPDOWN (SUBPÁGINAS) --- */
+        /* ESTILOS DO MENU DROPDOWN (SUBPÁGINAS) */
         .dropdown {
-            position: relative; /* Necessário para posicionar o submenu abaixo dele */
+            position: relative; 
         }
 
         .seta {
@@ -82,22 +82,21 @@
         }
 
         .submenu {
-            display: none; /* Oculto por padrão */
+            display: none; 
             position: absolute;
-            top: 100%; /* Posiciona exatamente na base do menu principal */
+            top: 100%; 
             left: 0;
             background-color: var(--cor-primaria);
-            min-width: 250px; /* Largura da caixa do submenu */
+            min-width: 250px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             border-top: 3px solid var(--cor-destaque);
             border-radius: 0 0 6px 6px;
-            flex-direction: column; /* Empilha as opções verticalmente */
-            gap: 0; /* Remove o gap de 2rem do menu pai */
+            flex-direction: column; 
+            gap: 0; 
             padding: 0.5rem 0;
-            z-index: 100; /* Garante que sobreponha o restante do site */
+            z-index: 100; 
         }
 
-        /* Exibe o submenu ao passar o mouse na li que contém a classe .dropdown */
         .dropdown:hover .submenu {
             display: flex;
         }
@@ -110,21 +109,19 @@
             display: block;
             padding: 0.8rem 1.5rem;
             font-size: 0.95rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Divisória elegante */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
             transition: background-color 0.3s, color 0.3s, padding-left 0.3s;
         }
 
         .submenu li:last-child a {
-            border-bottom: none; /* Remove a linha do último item */
+            border-bottom: none; 
         }
 
-        /* Efeito ao passar o mouse nas opções do submenu */
         .submenu a:hover {
             background-color: rgba(255, 255, 255, 0.05);
             color: var(--cor-destaque);
-            padding-left: 1.8rem; /* Pequeno deslocamento para a direita */
+            padding-left: 1.8rem; 
         }
-        /* --- FIM DOS ESTILOS DO DROPDOWN --- */
 
         /* SEÇÃO HERO (Acolhimento e Autoridade) */
         .hero {
@@ -249,72 +246,71 @@
                <li class="dropdown">
                 <a href="index.html">Início <span class="seta">▼</span></a>
                 <ul class="submenu">
-                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="sobre.html">Sobre a Consultoria</a></li>
                 </ul>
                </li>
-                
+               
                 <li class="dropdown">
                     <a href="#expertise">Como Posso Ajudar <span class="seta">▼</span></a>
                     <ul class="submenu">
-                        <li><a href="#ptam">Avaliação Mercadológica (PTAM)</a></li>
-                        <li><a href="#zoneamento">Análise de Viabilidade Urbana</a></li>
-                        <li><a href="#consultoria">Consultoria de Investimento</a></li>
+                        <li><a href="#diagnostico">Diagnóstico Comercial</a></li>
+                        <li><a href="#processos">Estruturação de Processos</a></li>
+                        <li><a href="#escala">Estratégia a Longo Prazo</a></li>
                     </ul>
                 </li>
                 
                 <li class="dropdown">
-                    <a href="#estudos">Meus Pareceres <span class="seta">▼</span></a>
+                    <a href="#estudos">Casos e Análises <span class="seta">▼</span></a>
                     <ul class="submenu">
-                        <li><a href="#case-santo-andre">Case Comercial: Santo André</a></li>
-                        <li><a href="#pesquisas">Pesquisas de Campo</a></li>
+                        <li><a href="#cases-mercado">Cases de Mercado</a></li>
+                        <li><a href="#auditorias">Auditorias de Vendas</a></li>
                         <li><a href="#estudos-andamento">Em Andamento</a></li>
                     </ul>
                 </li>
-                
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <h1>Inteligência Mercadológica para Decisões Seguras</h1>
-        <p>Do investidor iniciante ao avançado: ofereço clareza, embasamento técnico e segurança jurídica para que o seu próximo passo no mercado imobiliário seja o mais rentável e protegido possível.</p>
+        <h1>Inteligência Comercial para Resultados Sólidos</h1>
+        <p>Da concepção do modelo de negócios à consolidação a longo prazo: ofereço clareza, estruturação de processos e estratégias mercadológicas para que sua operação de vendas cresça de forma eficiente e sustentável.</p>
     </section>
 
     <section id="expertise">
         <h2 class="section-title">Expertise à Sua Disposição</h2>
         <div class="grid-container">
             <div class="card">
-                <h3>O Valor Real do Imóvel</h3>
-                <p>Muitas vezes, o preço pedido não reflete a realidade. Elaboro Pareceres Técnicos de Avaliação Mercadológica (PTAM) baseados em metodologia científica e amostras reais da região, garantindo que você compre ou venda pelo preço justo e tecnicamente correto.</p>
+                <h3>O Diagnóstico do Negócio</h3>
+                <p>Compreender a raiz e a viabilidade da sua operação é o primeiro passo. Analisamos e validamos o seu modelo de negócio, definindo público-alvo, precificação adequada e o posicionamento correto para garantir entrada assertiva no mercado.</p>
             </div>
             <div class="card">
-                <h3>Análise de Viabilidade e Zoneamento</h3>
-                <p>Antes de adquirir um lote ou imóvel comercial, é vital entender o que a prefeitura permite construir ou operar ali. Analiso a legislação urbana e o plano diretor para evitar surpresas jurídicas e financeiras no seu projeto.</p>
+                <h3>Estruturação de Vendas</h3>
+                <p>Um bom produto não se vende sozinho sem métodos claros. Mapeamos jornadas de compra e implementamos processos comerciais estruturados, garantindo que sua equipe (ou você mesmo) tenha um roteiro previsível para converter oportunidades em receitas.</p>
             </div>
             <div class="card">
-                <h3>Consultoria e Direcionamento</h3>
-                <p>Tem capital, mas não sabe por onde começar? Ajudo a interpretar as tendências do mercado, cruzando seus objetivos financeiros com as melhores oportunidades disponíveis, sempre focando na proteção do seu patrimônio.</p>
+                <h3>Estratégia e Escala a Longo Prazo</h3>
+                <p>O verdadeiro sucesso não é apenas fechar a primeira venda, mas reter o cliente e expandir a operação. Desenvolvemos indicadores de desempenho (KPIs) e estratégias de fidelização para proteger a saúde financeira do seu comércio no longo prazo.</p>
             </div>
         </div>
     </section>
 
     <section id="estudos" style="background-color: #EDF2F7;">
-        <h2 class="section-title">Estudos e Pareceres em Andamento</h2>
+        <h2 class="section-title">Análises e Diagnósticos em Andamento</h2>
         <div class="estudos-container">
-            <p>A transparência e o rigor técnico são os pilares do meu trabalho. Atualmente, estou em campo e nos bastidores compilando dados mercadológicos precisos.</p>
+            <p>A excelência comercial exige uma leitura analítica e constante da realidade do mercado. Atualmente, estou mapeando cenários corporativos e estruturando diagnósticos de processos.</p>
             
             <div class="item-destaque">
                 <h4>Em breve:</h4>
-                <p>Parecer Técnico de Avaliação Mercadológica (PTAM) detalhado de um imóvel comercial com foco na região de Santo André, SP. O estudo incluirá análise de zoneamento, relatório fotográfico e cruzamento de dados da região.</p>
+                <p>Auditoria e Diagnóstico Comercial detalhado de uma operação de varejo. O estudo englobará a análise do funil de vendas atual, o mapeamento de gargalos de conversão e a proposta de um plano de ação estruturado para otimização de lucros.</p>
             </div>
 
-            <span class="badge">Status: Estruturação de dados e elaboração de laudos em andamento.</span>
+            <span class="badge">Status: Compilação de dados comerciais em andamento.</span>
         </div>
     </section>
 
     <footer>
         <h2>ACAJ Consultoria</h2>
-        <p>Inteligência Mercadológica e Proteção Patrimonial</p>
+        <p>Inteligência Comercial, Estruturação e Escala de Negócios</p>
         <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
     </footer>
 
