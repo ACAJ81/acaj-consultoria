@@ -29,13 +29,14 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO COM MENUS SUSPENSOS */
+        /* CABEÇALHO PADRONIZADO E CENTRALIZADO */
         header {
             background-color: var(--cor-primaria);
             color: white;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%; /* Padronizado com as outras páginas */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,17 +50,27 @@
             font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 1px;
+            flex-shrink: 0;
         }
 
-        .logo span {
-            color: var(--cor-destaque);
+        .logo span { color: var(--cor-destaque); }
+
+        /* NAVEGAÇÃO CENTRALIZADA */
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
+        }
+
+        .dropdown {
+            position: relative;
         }
 
         nav a {
@@ -67,65 +78,56 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
         }
 
         nav a:hover, nav a.ativo {
             color: var(--cor-destaque);
         }
 
-        /* ESTILOS DO MENU DROPDOWN (SUBPÁGINAS) */
-        .dropdown {
-            position: relative;
-        }
-
         .seta {
             font-size: 0.6rem;
             margin-left: 5px;
-            vertical-align: middle;
             color: #A0AEC0;
         }
 
+        /* SUBMENU (DROPDOWN CORRIGIDO) */
         .submenu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
             background-color: var(--cor-primaria);
-            min-width: 250px;
+            min-width: 240px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             border-top: 3px solid var(--cor-destaque);
             border-radius: 0 0 6px 6px;
             flex-direction: column;
-            gap: 0;
             padding: 0.5rem 0;
-            z-index: 100;
+            z-index: 1100;
         }
 
         .dropdown:hover .submenu {
             display: flex;
         }
 
-        .submenu li {
-            width: 100%;
-        }
+        .submenu li { width: 100%; }
 
         .submenu a {
             display: block;
             padding: 0.8rem 1.5rem;
             font-size: 0.95rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: background-color 0.3s, color 0.3s, padding-left 0.3s;
-        }
-
-        .submenu li:last-child a {
-            border-bottom: none;
+            transition: all 0.3s ease;
         }
 
         .submenu a:hover {
             background-color: rgba(255, 255, 255, 0.05);
-            color: var(--cor-destaque);
             padding-left: 1.8rem;
+            color: var(--cor-destaque);
         }
 
         /* SEÇÃO HERO INTERNA */
@@ -138,11 +140,11 @@
         }
 
         .hero-interna h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 0.5rem;
         }
 
-        /* CONTEÚDO PRINCIPAL DA PÁGINA SOBRE */
+        /* CONTEÚDO PRINCIPAL */
         .conteudo-sobre {
             max-width: 1000px;
             margin: 4rem auto;
@@ -164,21 +166,20 @@
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             color: var(--cor-secundaria);
+            text-align: left;
         }
 
-        /* DESTAQUE DA ESTRUTURA (SLU) */
+        /* BOX ESTRUTURA (SLU) */
         .box-slu {
             background: white;
             padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-left: 5px solid var(--cor-destaque);
             margin: 2.5rem 0;
         }
 
-        .box-slu ul {
-            list-style: none;
-        }
+        .box-slu ul { list-style: none; }
 
         .box-slu ul li {
             margin-bottom: 1rem;
@@ -195,17 +196,12 @@
             font-size: 1.2rem;
         }
 
-        .box-slu ul li strong {
-            color: var(--cor-primaria);
-        }
-
-        /* MISSÃO E VALORES (3 Cards Alinhados e Maiores) */
+        /* GRID VALORES */
         .grid-valores {
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
             gap: 2rem;
             margin-top: 2rem;
-            align-items: stretch;
         }
 
         .card-valor {
@@ -214,9 +210,8 @@
             border-radius: 8px;
             border-top: 4px solid var(--cor-primaria);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            transition: all 0.3s ease;
+            height: 100%;
         }
 
         .card-valor:hover {
@@ -230,26 +225,6 @@
             font-size: 1.3rem;
         }
 
-        .card-valor p {
-            font-size: 1rem;
-            color: var(--cor-secundaria);
-            margin-bottom: 0;
-            flex-grow: 1;
-        }
-
-        /* RESPONSIVIDADE PARA OS CARDS DE VALORES */
-        @media (max-width: 900px) {
-            .grid-valores {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            }
-        }
-
-        @media (max-width: 600px) {
-            .grid-valores {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* RODAPÉ */
         footer {
             background-color: var(--cor-primaria);
@@ -259,9 +234,15 @@
             margin-top: 5rem;
         }
 
-        footer p {
-            color: #A0AEC0;
-            margin-top: 0.5rem;
+        footer p { color: #A0AEC0; margin-top: 0.5rem; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 992px) {
+            header { flex-direction: column; gap: 1rem; padding: 1.5rem 5%; }
+            nav { width: 100%; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .submenu { position: static; width: 100%; box-shadow: none; }
+            .grid-valores { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -271,66 +252,67 @@
         <div class="logo">ACAJ<span>.</span></div>
         <nav>
             <ul>
-               <li class="dropdown">
-                <a href="index.html">Início <span class="seta">▼</span></a>
-                <ul class="submenu">
-                        <li><a href="sobre.html">Sobre a Consultoria</a></li>
-                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
-                </ul>
-               </li>
-               
                 <li class="dropdown">
-                    <a href="#">Prevenção<span class="seta">▼</span></a>
+                    <a href="index.html">Início <span class="seta">▼</span></a>
                     <ul class="submenu">
-                        <li><a href="#diagnostico">&&&&&</a></li>
-                        <li><a href="#processos">&&&&&</a></li>
-                        <li><a href="#escala">&&&&&</a></li>
+                        <li><a href="sobre.html" class="ativo">Sobre a Consultoria</a></li>
+                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
                     </ul>
                 </li>
                 
                 <li class="dropdown">
-                    <a href="#">Imóveis<span class="seta">▼</span></a>
+                    <a href="#expertise">Prevenção <span class="seta">▼</span></a>
                     <ul class="submenu">
-                        <li><a href="#artigos">&&&&&</a></li>
-                        <li><a href="#cases-publicos">&&&&&</a></li>
-                        <li><a href="#tendencias">&&&&&</a></li>
+                        <li><a href="#diagnostico">Gestão de Riscos</a></li>
+                        <li><a href="#processos">Compliance</a></li>
+                        <li><a href="#escala">Auditoria</a></li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
-                    <a href="financa.html">Finança<span class="seta">▼</span></a>
+                    <a href="#estudos">Imóveis <span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#artigos">Avaliação</a></li>
+                        <li><a href="#cases-publicos">Investimentos</a></li>
+                        <li><a href="#tendencias">Mercado</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="financa.html">Finança <span class="seta">▼</span></a>
                     <ul class="submenu">
                         <li><a href="analise_tecnica.html">Análise Técnica</a></li>
-                        <li><a href="#cases-publicos">&&&&&</a></li>
-                        <li><a href="#tendencias">&&&&&</a></li>
+                        <li><a href="#planejamento">Planejamento</a></li>
+                        <li><a href="#cenario">Cenário Econômico</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
+
     <section class="hero-interna">
         <h1>Sobre a Consultoria ACAJ</h1>
         <p>Conheça a estrutura e os princípios que guiam nossas análises e estruturações comerciais.</p>
     </section>
 
     <main class="conteudo-sobre">
-        
         <h2>A nossa essência</h2>
         <p>A ACAJ nasceu do desejo de oferecer soluções em <strong>inteligência e estruturação comercial</strong> com excelência, agilidade e um olhar humano. Entendemos que cada negócio é único, cada operação de vendas tem sua história, e por isso você merece um atendimento direto, focado em resultados reais e sem burocracias desnecessárias.</p>
 
         <h2>Nossa Estrutura: Inovação e Segurança</h2>
-        <p>Somos constituídos sob o modelo de <strong>Sociedade Limitada Unipessoal (SLU)</strong>. Mas o que isso significa para você, nosso cliente?</p>
+        <p>Somos constituídos sob o modelo de <strong>Sociedade Limitada Unipessoal (SLU)</strong>.</p>
         
         <div class="box-slu">
-            <p style="margin-bottom: 1.5rem;">A SLU é um dos formatos empresariais mais modernos do Brasil. Ela nos permite operar com a agilidade de um consultor focado, mas com o peso, o profissionalismo e a segurança jurídica de uma empresa de responsabilidade limitada. Na prática, isso se traduz em:</p>
+            <p style="margin-bottom: 1.5rem;">A SLU permite operar com a agilidade de um consultor focado, mas com o profissionalismo e a segurança jurídica de uma empresa de responsabilidade limitada:</p>
             <ul>
-                <li><strong>Decisões Ágeis:</strong> Sem a necessidade de consultar um quadro de sócios engessado, nossas soluções e adaptações à realidade da sua empresa são muito mais rápidas.</li>
-                <li><strong>Atendimento Direto:</strong> A visão do fundador e estrategista está presente em cada etapa, garantindo um padrão de qualidade inegociável.</li>
-                <li><strong>Transparência e Credibilidade:</strong> Atuamos com total regularidade e responsabilidade, garantindo segurança em todos os nossos contratos e diagnósticos comerciais.</li>
+                <li><strong>Decisões Ágeis:</strong> Sem engessamento burocrático, adaptamos soluções rapidamente à sua realidade.</li>
+                <li><strong>Atendimento Direto:</strong> A visão do estrategista presente em cada etapa do processo.</li>
+                <li><strong>Transparência:</strong> Total regularidade e responsabilidade jurídica em todos os contratos.</li>
             </ul>
         </div>
 
         <h2>Nossa Missão</h2>
-        <p>Entregar clareza, processos validados e estratégias sustentáveis para empresários e gestores, garantindo que suas operações de vendas sejam previsíveis, rentáveis e altamente escaláveis no longo prazo.</p>
+        <p>Entregar clareza, processos validados e estratégias sustentáveis para empresários e gestores, garantindo que suas operações de vendas sejam previsíveis, rentáveis e escaláveis.</p>
 
         <h2>Nossos Valores</h2>
         <div class="grid-valores">
@@ -340,14 +322,13 @@
             </div>
             <div class="card-valor">
                 <h3>Inovação</h3>
-                <p>Buscamos sempre as metodologias mais modernas e validadas de estruturação de vendas e mapeamento de jornadas de compra.</p>
+                <p>Buscamos metodologias modernas e validadas de estruturação de vendas e mapeamento de jornadas de compra.</p>
             </div>
             <div class="card-valor">
                 <h3>Proximidade</h3>
-                <p>Construímos uma relação de parceria verdadeira e transparente, entendendo a fundo a realidade da sua operação e mercado.</p>
+                <p>Construímos parcerias verdadeiras, entendendo a fundo a realidade da sua operação e do seu mercado local.</p>
             </div>
         </div>
-
     </main>
 
     <footer>
