@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finança | ACAJ Consultoria</title>
+    <style>
+        /* MANTENDO O SEU RESET E VARIÁVEIS ORIGINAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --cor-primaria: #1A365D; 
+            --cor-secundaria: #4A5568; 
+            --cor-destaque: #D69E2E; 
+            --cor-fundo: #F7FAFC;
+            --cor-texto: #2D3748;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.7;
+        }
+
+        /* CABEÇALHO (IDÊNTICO AO PRINCIPAL) */
+        header {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--cor-destaque);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--cor-destaque);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #E2E8F0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--cor-destaque);
+        }
+
+        /* SEÇÃO HERO ADAPTADA */
+        .hero {
+            background-color: #2B6CB0;
+            background-image: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+            color: white;
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #E2E8F0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* GRID DE CONTEÚDO PARA O ESBOÇO */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--cor-primaria);
+            font-weight: 700;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--cor-primaria);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--cor-primaria);
+            border-bottom: 2px solid var(--cor-fundo);
+            padding-bottom: 0.5rem;
+        }
+
+        /* DESTAQUE PARA SUSTENTABILIDADE */
+        .foco-sustentavel {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 4rem auto 0;
+            border-left: 5px solid var(--cor-destaque);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            background-color: var(--cor-primaria);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            color: #A0AEC0;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ACAJ<span>.</span></div>
+        <nav>
+            <ul>
+               <li class="dropdown">
+                <a href="index.html">Início <span class="seta">▼</span></a>
+                <ul class="submenu">
+                        <li><a href="sobre.html">Sobre a Consultoria</a></li>
+                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
+                </ul>
+               </li>
+               
+                <li class="dropdown">
+                    <a href="#expertise">Prevenção<span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#diagnostico">&&&&&</a></li>
+                        <li><a href="#processos">&&&&&</a></li>
+                        <li><a href="#escala">&&&&&</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#estudos">Imóveis<span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#artigos">&&&&&</a></li>
+                        <li><a href="#cases-publicos">&&&&&</a></li>
+                        <li><a href="#tendencias">&&&&&</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="financa.html">Finança<span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#artigos">&&&&&</a></li>
+                        <li><a href="#cases-publicos">&&&&&</a></li>
+                        <li><a href="#tendencias">&&&&&</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Gestão Financeira e Valor Agregado</h1>
+        <p>
+            Controlar de forma eficaz o planejamento e a análise de investimentos é o pilar para o desenvolvimento. 
+            A Economia manuseia os recursos financeiros com o objetivo de otimizar ao máximo o valor agregado, 
+            garantindo uma posição competitiva e o retorno positivo do que foi investido.
+        </p>
+    </section>
+
+    <section id="economia">
+        <h2 class="section-title">Pilares da Inteligência Econômica</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Mercado e Política</h3>
+                <p>As interações financeiras ocorrem em função das informações mundiais. A publicidade e as regulações do Estado definem as tendências de produtos e serviços, onde o trabalho gera a ordem e a liberdade geográfica.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Equilíbrio Competitivo</h3>
+                <p>Estabelecer preços cria relações de consumo e aloca recursos entre os setores e o Estado. São os preços dos produtos finais e fatores de produção que trazem o equilíbrio necessário ao mercado financeiro.</p>
+            </div>
+
+            <div class="card">
+                <h3>Evolução Tecnológica</h3>
+                <p>O sistema evolui através da utilização dos recursos disponíveis sob a tecnologia atual. A eficiência em cronometrar o deslocamento e a disposição destes recursos é o que garante a evolução econômica.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="producao" style="background-color: #EDF2F7;">
+        <h2 class="section-title">Produção e Gestão de Escassez</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Processo Produtivo</h3>
+                <p>A produção transforma insumos em produtos destinados ao Comércio. Organizar este processo para máxima utilização dos fatores resulta em baixo custo e incremento real na oferta de bens e serviços.</p>
+            </div>
+            <div class="card">
+                <h3>Risco e Matéria-Prima</h3>
+                <p>A escassez é o risco que afeta o modo, quantidade e tempo de produção. Escolher um bem implica, muitas vezes, em ter menos da matéria-prima principal, o que altera toda a característica da cadeia de suprimentos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sustentabilidade">
+        <div class="foco-sustentavel">
+            <h2 style="color: var(--cor-primaria); margin-bottom: 1rem;">Transformação Sustentável</h2>
+            <p>
+                A Economia atende às necessidades de sobrevivência e de transformação sustentável dos recursos. 
+                O bem-estar determina a eficiência em alocar e examinar as atividades das pessoas que constituem a sociedade. 
+                Quando a produção expande sem aumentar custos, a economia avança verdadeiramente.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <h2>ACAJ Consultoria</h2>
+        <p>Inteligência Comercial, Estruturação e Escala de Negócios</p>
+        <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
