@@ -26,35 +26,47 @@
             background-color: var(--cor-fundo);
             color: var(--cor-texto);
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO */
+        /* CABEÇALHO PADRONIZADO E CENTRALIZADO */
         header {
             background-color: var(--cor-primaria);
             color: white;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid var(--cor-destaque);
+            position: relative;
+            z-index: 1000;
         }
 
         .logo {
             font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 1px;
+            flex-shrink: 0;
         }
 
-        .logo span {
-            color: var(--cor-destaque);
+        .logo span { color: var(--cor-destaque); }
+
+        /* NAVEGAÇÃO CENTRALIZADA */
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
         }
 
-        /* NAVEGAÇÃO PRINCIPAL */
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
+        }
+
+        .dropdown {
+            position: relative; 
         }
 
         nav a {
@@ -62,61 +74,52 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 0.5rem 0;
-        }
-
-        nav a:hover {
-            color: var(--cor-destaque);
-        }
-
-        /* ESTILOS DO MENU DROPDOWN */
-        .dropdown {
-            position: relative; 
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
         }
 
         .seta {
             font-size: 0.6rem;
             margin-left: 5px;
-            vertical-align: middle;
             color: #A0AEC0;
         }
 
+        /* SUBMENU (DROPDOWN CORRIGIDO) */
         .submenu {
             display: none; 
             position: absolute;
             top: 100%; 
             left: 0;
             background-color: var(--cor-primaria);
-            min-width: 250px; 
+            min-width: 240px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             border-top: 3px solid var(--cor-destaque);
             border-radius: 0 0 6px 6px;
             flex-direction: column; 
-            gap: 0; 
             padding: 0.5rem 0;
-            z-index: 100; 
+            z-index: 1100; 
         }
 
         .dropdown:hover .submenu {
             display: flex;
         }
 
-        .submenu li {
-            width: 100%;
-        }
+        .submenu li { width: 100%; }
 
         .submenu a {
             display: block;
             padding: 0.8rem 1.5rem;
             font-size: 0.95rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-            transition: background-color 0.3s, color 0.3s, padding-left 0.3s;
+            transition: all 0.3s ease;
         }
 
         .submenu a:hover {
             background-color: rgba(255, 255, 255, 0.05);
-            color: var(--cor-destaque);
             padding-left: 1.8rem; 
+            color: var(--cor-destaque);
         }
 
         /* SEÇÃO HERO */
@@ -129,22 +132,20 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 5vw, 3rem);
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #E2E8F0;
-            max-width: 800px;
-            margin: 0 auto 2rem auto;
+            max-width: 850px;
+            margin: 0 auto;
         }
 
         /* SEÇÕES DE CONTEÚDO */
-        section {
-            padding: 5rem 5%;
-        }
+        section { padding: 5rem 5%; }
 
         .section-title {
             text-align: center;
@@ -167,56 +168,54 @@
             background: white;
             padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-top: 4px solid var(--cor-primaria);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            height: 100%;
         }
 
         .card:hover {
             transform: translateY(-5px);
             border-top-color: var(--cor-destaque);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
             color: var(--cor-primaria);
             text-transform: uppercase;
             letter-spacing: 1px;
+            border-bottom: 2px solid var(--cor-fundo);
+            padding-bottom: 0.5rem;
         }
 
         .card p {
             color: var(--cor-secundaria);
             font-size: 1rem;
-            text-align: justify;
+            text-align: left; /* Mudado de justify para melhor leitura em telas menores */
         }
 
         /* CONCLUSÃO/INTUITO */
         .intuito-container {
             background: white;
-            padding: 3rem;
+            padding: 4rem 3rem;
             border-radius: 10px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
             border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .intuito-container h2 {
-            color: var(--cor-primaria);
-            margin-bottom: 1.5rem;
         }
 
         .highlight-box {
-            margin-top: 2rem;
-            padding: 2rem;
+            margin-top: 2.5rem;
+            padding: 2.5rem;
             background-color: #F7FAFC;
             border-left: 5px solid var(--cor-destaque);
-            text-align: center;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--cor-primaria);
+            line-height: 1.6;
         }
 
         /* RODAPÉ */
@@ -227,9 +226,15 @@
             padding: 3rem 5%;
         }
 
-        footer p {
-            color: #A0AEC0;
-            margin-top: 0.5rem;
+        footer p { color: #A0AEC0; margin-top: 0.5rem; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 992px) {
+            header { flex-direction: column; gap: 1rem; }
+            nav { width: 100%; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .submenu { position: static; width: 100%; box-shadow: none; }
+            section { padding: 3rem 5%; }
         }
     </style>
 </head>
@@ -239,77 +244,81 @@
         <div class="logo">ACAJ<span>.</span></div>
         <nav>
             <ul>
-               <li class="dropdown">
-                <a href="index.html">Início <span class="seta">▼</span></a>
-                <ul class="submenu">
+                <li class="dropdown">
+                    <a href="index.html">Início <span class="seta">▼</span></a>
+                    <ul class="submenu">
                         <li><a href="sobre.html">Sobre a Consultoria</a></li>
                         <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
-                </ul>
-               </li>
-               
-                <li class="dropdown">
-                    <a href="#expertise">Prevenção<span class="seta">▼</span></a>
-                    <ul class="submenu">
-                        <li><a href="#diagnostico">&&&&&</a></li>
-                        <li><a href="#processos">&&&&&</a></li>
-                        <li><a href="#escala">&&&&&</a></li>
                     </ul>
                 </li>
                 
                 <li class="dropdown">
-                    <a href="#estudos">Imóveis<span class="seta">▼</span></a>
+                    <a href="#expertise">Prevenção <span class="seta">▼</span></a>
                     <ul class="submenu">
-                        <li><a href="#artigos">&&&&&</a></li>
-                        <li><a href="#cases-publicos">&&&&&</a></li>
-                        <li><a href="#tendencias">&&&&&</a></li>
+                        <li><a href="#diagnostico">Gestão de Riscos</a></li>
+                        <li><a href="#processos">Compliance</a></li>
+                        <li><a href="#escala">Auditoria</a></li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
-                    <a href="financa.html">Finança<span class="seta">▼</span></a>
+                    <a href="#estudos">Imóveis <span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#artigos">Avaliação</a></li>
+                        <li><a href="#cases-publicos">Investimentos</a></li>
+                        <li><a href="#tendencias">Mercado</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="financa.html">Finança <span class="seta">▼</span></a>
                     <ul class="submenu">
                         <li><a href="analise_tecnica.html">Análise Técnica</a></li>
-                        <li><a href="#cases-publicos">&&&&&</a></li>
-                        <li><a href="#tendencias">&&&&&</a></li>
+                        <li><a href="#planejamento">Planejamento</a></li>
+                        <li><a href="#cenario">Cenário Econômico</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
-    <section class="hero">
-        <h1>O que é Nossa Inteligência Comercial?</h1>
-        <p>O mundo dos negócios é um ecossistema vivo, onde oportunidade, estruturação e confiança operam em sintonia. Nossa inteligência nasce de uma leitura estratégica e profunda do mercado.</p>
-    </section>
 
-    <section id="expertise">
-        <h2 class="section-title">Os Pilares da Nossa Atuação</h2>
-        <div class="grid-container">
-            <div class="card" id="mercado">
-                <h3>O Mercado</h3>
-                <p>Termômetro das transações econômicas, o Mercado é um ambiente dinâmico que evolui sob o impacto constante de variáveis de curto, médio e longo prazo. É neste espaço onde a interação humana e os mecanismos de preço transmitem as informações vitais que definem o valor real dos ativos. Dominamos este ambiente para que as decisões de investimento sejam precisas e críticas.</p>
-            </div>
+    <main>
+        <section class="hero">
+            <h1>O que é Nossa Inteligência Comercial?</h1>
+            <p>O mundo dos negócios é um ecossistema vivo, onde oportunidade, estruturação e confiança operam em sintonia. Nossa inteligência nasce de uma leitura estratégica e profunda do mercado.</p>
+        </section>
 
-            <div class="card" id="comercio">
-                <h3>O Comércio</h3>
-                <p>Ler o cenário não basta; é preciso operar. A engenharia do Comércio é o sistema tático que neutraliza barreiras geográficas, temporais e de risco. Do domínio da cadeia de suprimentos às regulamentações complexas e inovações tecnológicas, garantimos que a troca de valor ocorra de forma fluida, segura e rentável, independente das oscilações externas.</p>
-            </div>
+        <section id="expertise">
+            <h2 class="section-title">Os Pilares da Nossa Atuação</h2>
+            <div class="grid-container">
+                <div class="card" id="mercado">
+                    <h3>O Mercado</h3>
+                    <p>Termômetro das transações econômicas, o Mercado é um ambiente dinâmico que evolui sob o impacto constante de variáveis de curto, médio e longo prazo. Dominamos este ambiente para que as decisões de investimento sejam precisas e críticas.</p>
+                </div>
 
-            <div class="card" id="marketing">
-                <h3>O Marketing</h3>
-                <p>A ponte que conecta o potencial de mercado ao resultado real. Para nós, o Marketing é a Ciência de mapear as reais necessidades e o perfil comportamental do público. É através dele que apresentamos as soluções certas para atender e construir uma confiança inabalável entre a sua oferta e a demanda do mercado.</p>
-            </div>
-        </div>
-    </section>
+                <div class="card" id="comercio">
+                    <h3>O Comércio</h3>
+                    <p>A engenharia do Comércio é o sistema tático que neutraliza barreiras geográficas, temporais e de risco. Garantimos que a troca de valor ocorra de forma fluida, segura e rentável, independente das oscilações externas.</p>
+                </div>
 
-    <section id="intuito" style="background-color: #EDF2F7;">
-        <div class="intuito-container">
-            <h2>Nossa Missão</h2>
-            <p>Acreditamos que a complexidade não deve ser um obstáculo, mas uma oportunidade de diferenciação através da inteligência aplicada.</p>
-            
-            <div class="highlight-box">
-                "O intuito de nossa Consultoria é transformar a complexidade do mercado em clareza, a burocracia do Comércio em processos eficientes, e a comunicação do marketing em confiança. Isso é Inteligência Comercial."
+                <div class="card" id="marketing">
+                    <h3>O Marketing</h3>
+                    <p>A ponte que conecta o potencial de mercado ao resultado real. Para nós, o Marketing é a Ciência de mapear as reais necessidades e o perfil comportamental do público, construindo confiança inabalável entre oferta e demanda.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="intuito" style="background-color: #EDF2F7;">
+            <div class="intuito-container">
+                <h2 style="font-size: 2rem;">Nossa Missão</h2>
+                <p style="font-size: 1.1rem; color: var(--cor-secundaria);">Acreditamos que a complexidade não deve ser um obstáculo, mas uma oportunidade de diferenciação através da inteligência aplicada.</p>
+                
+                <div class="highlight-box">
+                    "O intuito de nossa Consultoria é transformar a complexidade do mercado em clareza, a burocracia do Comércio em processos eficientes, e a comunicação do marketing em confiança. Isso é Inteligência Comercial."
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <h2>ACAJ Consultoria</h2>
