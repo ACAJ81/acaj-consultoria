@@ -26,34 +26,44 @@
             background-color: var(--cor-fundo);
             color: var(--cor-texto);
             line-height: 1.7;
+            overflow-x: hidden; /* Evita que o menu crie scroll lateral */
         }
 
-        /* CABEÇALHO */
+        /* CABEÇALHO REDIMENSIONADO */
         header {
             background-color: var(--cor-primaria);
             color: white;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%; /* Padding reduzido para um menu mais elegante */
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid var(--cor-destaque);
+            position: relative;
+            z-index: 1000;
         }
 
         .logo {
             font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 1px;
+            flex-shrink: 0;
         }
 
         .logo span {
             color: var(--cor-destaque);
         }
 
-        /* NAVEGAÇÃO PRINCIPAL */
+        /* NAVEGAÇÃO CENTRALIZADA */
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center; /* Centraliza a sessão de menu */
+        }
+
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -62,7 +72,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap; /* Impede que o texto quebre linha */
         }
 
         nav a:hover {
@@ -77,7 +90,6 @@
         .seta {
             font-size: 0.6rem;
             margin-left: 5px;
-            vertical-align: middle;
             color: #A0AEC0;
         }
 
@@ -87,14 +99,13 @@
             top: 100%; 
             left: 0;
             background-color: var(--cor-primaria);
-            min-width: 250px; 
+            min-width: 240px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             border-top: 3px solid var(--cor-destaque);
             border-radius: 0 0 6px 6px;
             flex-direction: column; 
-            gap: 0; 
             padding: 0.5rem 0;
-            z-index: 100; 
+            z-index: 1100; 
         }
 
         .dropdown:hover .submenu {
@@ -110,16 +121,11 @@
             padding: 0.8rem 1.5rem;
             font-size: 0.95rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-            transition: background-color 0.3s, color 0.3s, padding-left 0.3s;
-        }
-
-        .submenu li:last-child a {
-            border-bottom: none; 
+            transition: all 0.3s ease;
         }
 
         .submenu a:hover {
             background-color: rgba(255, 255, 255, 0.05);
-            color: var(--cor-destaque);
             padding-left: 1.8rem; 
         }
 
@@ -133,16 +139,16 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #E2E8F0;
-            max-width: 800px;
-            margin: 0 auto 2rem auto;
+            max-width: 850px;
+            margin: 0 auto;
         }
 
         /* SEÇÕES DE CONTEÚDO */
@@ -158,10 +164,9 @@
             font-weight: 700;
         }
 
-        /* GRID DOS SERVIÇOS */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -171,59 +176,25 @@
             background: white;
             padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border-top: 4px solid var(--cor-primaria);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
             border-top-color: var(--cor-destaque);
         }
 
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--cor-primaria);
-        }
-
-        .card p {
-            color: var(--cor-secundaria);
-            font-size: 1rem;
-        }
-
-        /* VITRINE DE ESTUDOS */
         .estudos-container {
             background: white;
             padding: 3rem;
             border-radius: 10px;
-            text-align: center;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             border: 1px solid #E2E8F0;
         }
 
-        .badge {
-            display: inline-block;
-            background-color: #EDF2F7;
-            color: var(--cor-secundaria);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-        }
-
-        .item-destaque {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: #F7FAFC;
-            border-left: 4px solid var(--cor-destaque);
-            text-align: left;
-        }
-
-        /* RODAPÉ */
         footer {
             background-color: var(--cor-primaria);
             color: white;
@@ -231,9 +202,26 @@
             padding: 3rem 5%;
         }
 
-        footer p {
-            color: #A0AEC0;
-            margin-top: 0.5rem;
+        /* RESPONSIVIDADE PARA TELAS PEQUENAS */
+        @media (max-width: 992px) {
+            header {
+                flex-direction: column;
+                padding: 1.5rem 5%;
+            }
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+            }
         }
     </style>
 </head>
@@ -243,79 +231,83 @@
         <div class="logo">ACAJ<span>.</span></div>
         <nav>
             <ul>
-               <li class="dropdown">
-                <a href="index.html">Início <span class="seta">▼</span></a>
-                <ul class="submenu">
+                <li class="dropdown">
+                    <a href="index.html">Início <span class="seta">▼</span></a>
+                    <ul class="submenu">
                         <li><a href="sobre.html">Sobre a Consultoria</a></li>
                         <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
-                </ul>
-               </li>
-               
-                <li class="dropdown">
-                    <a href="#expertise">Prevenção<span class="seta">▼</span></a>
-                    <ul class="submenu">
-                        <li><a href="#diagnostico">&&&&&</a></li>
-                        <li><a href="#processos">&&&&&</a></li>
-                        <li><a href="#escala">&&&&&</a></li>
                     </ul>
                 </li>
                 
                 <li class="dropdown">
-                    <a href="#estudos">Imóveis<span class="seta">▼</span></a>
+                    <a href="#expertise">Prevenção <span class="seta">▼</span></a>
                     <ul class="submenu">
-                        <li><a href="#artigos">&&&&&</a></li>
-                        <li><a href="#cases-publicos">&&&&&</a></li>
-                        <li><a href="#tendencias">&&&&&</a></li>
+                        <li><a href="#diagnostico">Gestão de Riscos</a></li>
+                        <li><a href="#processos">Compliance</a></li>
+                        <li><a href="#escala">Auditoria</a></li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
-                    <a href="financa.html">Finança<span class="seta">▼</span></a>
+                    <a href="#estudos">Imóveis <span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#artigos">Avaliação</a></li>
+                        <li><a href="#cases-publicos">Investimentos</a></li>
+                        <li><a href="#tendencias">Mercado</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="financa.html">Finança <span class="seta">▼</span></a>
                     <ul class="submenu">
                         <li><a href="analise_tecnica.html">Análise Técnica</a></li>
-                        <li><a href="#cases-publicos">&&&&&</a></li>
-                        <li><a href="#tendencias">&&&&&</a></li>
+                        <li><a href="#planejamento">Planejamento</a></li>
+                        <li><a href="#tendencias">Cenário Econômico</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <h1>Inteligência Comercial para Resultados Sólidos</h1>
-        <p>Da concepção do modelo de negócios à consolidação a longo prazo: ofereço clareza, estruturação de processos e estratégias mercadológicas para que sua operação de vendas cresça de forma eficiente e sustentável.</p>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <h1>Inteligência Comercial para Resultados Sólidos</h1>
+            <p>Da concepção do modelo de negócios à consolidação a longo prazo: ofereço clareza, estruturação de processos e estratégias mercadológicas para que sua operação de vendas cresça de forma eficiente e sustentável.</p>
+        </section>
 
-    <section id="expertise">
-        <h2 class="section-title">Expertise à Sua Disposição</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>O Diagnóstico do Negócio</h3>
-                <p>Compreender a raiz e a viabilidade da sua operação é o primeiro passo. Analisamos e validamos o seu modelo de negócio, definindo público-alvo, precificação adequada e o posicionamento correto para garantir entrada assertiva no mercado.</p>
+        <section id="expertise">
+            <h2 class="section-title">Expertise à Sua Disposição</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>O Diagnóstico do Negócio</h3>
+                    <p>Compreender a raiz e a viabilidade da sua operação é o primeiro passo. Analisamos e validamos o seu modelo de negócio, definindo público-alvo e precificação adequada.</p>
+                </div>
+                <div class="card">
+                    <h3>Estruturação de Vendas</h3>
+                    <p>Mapeamos jornadas de compra e implementamos processos comerciais estruturados, garantindo um roteiro previsível para converter oportunidades em receitas.</p>
+                </div>
+                <div class="card">
+                    <h3>Estratégia e Escala</h3>
+                    <p>Desenvolvemos indicadores de desempenho (KPIs) e estratégias de fidelização para proteger a saúde financeira do seu comércio no longo prazo.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Estruturação de Vendas</h3>
-                <p>Um bom produto não se vende sozinho sem métodos claros. Mapeamos jornadas de compra e implementamos processos comerciais estruturados, garantindo que sua equipe (ou você mesmo) tenha um roteiro previsível para converter oportunidades em receitas.</p>
-            </div>
-            <div class="card">
-                <h3>Estratégia e Escala a Longo Prazo</h3>
-                <p>O verdadeiro sucesso não é apenas fechar a primeira venda, mas reter o cliente e expandir a operação. Desenvolvemos indicadores de desempenho (KPIs) e estratégias de fidelização para proteger a saúde financeira do seu comércio no longo prazo.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="estudos" style="background-color: #EDF2F7;">
-        <h2 class="section-title">Inteligência e Artigos de Mercado</h2>
-        <div class="estudos-container">
-            <p>A excelência comercial exige uma leitura crítica e constante do cenário econômico. Compartilho nesta seção estudos técnicos, dissecção de modelos de negócios e análises aprofundadas sobre tendências de consumo.</p>
-            
-            <div class="item-destaque">
-                <h4>Artigo em Desenvolvimento:</h4>
-                <p>Análise Estratégica do Setor de Utilidades Domésticas em Santo André. O estudo abordará os principais gargalos de conversão do varejo físico local e as metodologias aplicáveis para alinhamento de preços e aumento de margem de lucro na região.</p>
+        <section id="estudos" style="background-color: #EDF2F7;">
+            <h2 class="section-title">Inteligência e Artigos de Mercado</h2>
+            <div class="estudos-container">
+                <p style="text-align: center; margin-bottom: 2rem;">A excelência comercial exige uma leitura crítica e constante do cenário econômico. Compartilho nesta seção estudos técnicos e análises aprofundadas.</p>
+                
+                <div style="padding: 1.5rem; background-color: #F7FAFC; border-left: 4px solid var(--cor-destaque);">
+                    <h4 style="color: var(--cor-primaria); margin-bottom: 0.5rem;">Artigo em Desenvolvimento:</h4>
+                    <p>Análise Estratégica do Setor de Utilidades Domésticas em Santo André. O estudo abordará os principais gargalos de conversão do varejo físico local.</p>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <span style="display: inline-block; background-color: #EDF2F7; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Status: Pesquisa em andamento.</span>
+                </div>
             </div>
-
-            <span class="badge">Status: Pesquisa e compilação de dados mercadológicos em andamento.</span>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <h2>ACAJ Consultoria</h2>
