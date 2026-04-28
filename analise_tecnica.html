@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Técnica | ACAJ Consultoria</title>
+    <style>
+        /* RESET E VARIÁVEIS (PADRÃO ACAJ) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --cor-primaria: #1A365D; 
+            --cor-secundaria: #4A5568; 
+            --cor-destaque: #D69E2E; 
+            --cor-fundo: #F7FAFC;
+            --cor-texto: #2D3748;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.7;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--cor-destaque);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--cor-destaque); }
+
+        nav a {
+            color: #E2E8F0;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--cor-destaque); }
+
+        /* HERO SECTION */
+        .hero {
+            background-image: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #E2E8F0; }
+
+        /* SEÇÃO DE CONTEÚDO */
+        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+
+        .comparativo {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .box-analise {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--cor-primaria);
+        }
+
+        .box-analise.tecnica { border-left-color: var(--cor-destaque); }
+
+        .box-analise h3 { margin-bottom: 1rem; color: var(--cor-primaria); }
+
+        /* COMPONENTES CHAVE */
+        .componentes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .componente-card {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .componente-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--cor-destaque);
+        }
+
+        /* NOTA DE CAUTELA */
+        .aviso-risco {
+            background-color: #FFF5F5;
+            border: 1px solid #FEB2B2;
+            color: #C53030;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--cor-primaria);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ACAJ<span>.</span></div>
+         <nav>
+            <ul>
+               <li class="dropdown">
+                <a href="index.html">Início <span class="seta">▼</span></a>
+                <ul class="submenu">
+                        <li><a href="sobre.html">Sobre a Consultoria</a></li>
+                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
+                </ul>
+               </li>
+               
+                <li class="dropdown">
+                    <a href="#expertise">Imóveis<span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="#diagnostico">&&&&&</a></li>
+                        <li><a href="#processos">&&&&&</a></li>
+                        <li><a href="#escala">&&&&&</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="financa.html">Finança<span class="seta">▼</span></a>
+                    <ul class="submenu">
+                        <li><a href="analise_tecnica.html">Análise Técnica</a></li>
+                        <li><a href="#cases-publicos">&&&&&</a></li>
+                        <li><a href="#tendencias">&&&&&</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Análise Técnica de Ações</h1>
+        <p>A ciência de avaliar a oferta e a demanda através do comportamento histórico dos preços e volumes.</p>
+    </section>
+
+    <section>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2>Entendendo o Método</h2>
+            <p style="max-width: 900px; margin: 1rem auto; color: var(--cor-secundaria);">
+                Diferente de outras abordagens, a Análise Técnica foca em dados de atividade para encontrar oportunidades de investimento e determinar os pontos ideais de entrada e saída das operações.
+            </p>
+        </div>
+
+        <div class="comparativo">
+            <div class="box-analise">
+                <h3>Análise Fundamentalista</h3>
+                <p>Avalia o valor intrínseco de um ativo com base em dados financeiros sólidos, como lucros, vendas, balanços patrimoniais e saúde econômica da empresa.</p>
+            </div>
+            <div class="box-analise tecnica">
+                <h3>Análise Técnica</h3>
+                <p>Avalia os movimentos de preço e o volume por meio de dados históricos de negociação. Utiliza indicadores como linhas de tendência, médias móveis e momentum.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <h2 style="text-align: center;">Componentes Chave</h2>
+            <div class="componentes-grid">
+                <div class="componente-card">
+                    <h4>Padrões Gráficos</h4>
+                    <p>Identificação de formações visuais no histórico de preços que sugerem a continuidade ou reversão de tendências.</p>
+                </div>
+                <div class="componente-card">
+                    <h4>Indicadores Técnicos</h4>
+                    <p>Cálculos matemáticos aplicados ao preço e volume para antecipar movimentos futuros do mercado.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="aviso-risco">
+            <strong>Atenção:</strong> Embora eficaz, o desempenho passado não garante resultados futuros. Investidores devem evitar a dependência de uma única ferramenta analítica para suas decisões.
+        </div>
+    </section>
+
+    <footer>
+        <h2>ACAJ Consultoria</h2>
+        <p>Inteligência Comercial e Estratégia de Investimentos</p>
+        <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
