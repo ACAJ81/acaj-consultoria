@@ -3,287 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre a Consultoria | ACAJ Inteligência Comercial</title>
+    <title>Sobre a Consultoria | ACAJ</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* RESET E FONTES */
+        /* --- CSS RESET & BASE --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* VARIÁVEIS DE CORES */
         :root {
-            --cor-primaria: #1A365D; 
-            --cor-secundaria: #4A5568; 
-            --cor-destaque: #D69E2E; 
-            --cor-fundo: #F7FAFC;
-            --cor-texto: #2D3748;
+            --primary-blue: #0a2540;
+            --accent-gold: #c5a059;
+            --text-dark: #333;
+            --text-light: #ffffff;
+            --bg-light: #f4f7f9;
         }
 
         body {
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.7;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* CABEÇALHO PADRONIZADO E CENTRALIZADO */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER & NAVIGATION (PADRÃO ATUAL) --- */
         header {
-            background-color: var(--cor-primaria);
-            color: white;
-            padding: 1rem 5%; /* Padronizado com as outras páginas */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--cor-destaque);
-            position: sticky;
+            background: var(--primary-blue);
+            padding: 15px 0;
+            border-bottom: 2px solid var(--accent-gold);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
         }
 
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            flex-shrink: 0;
-        }
-
-        .logo span { color: var(--cor-destaque); }
-
-        /* NAVEGAÇÃO CENTRALIZADA */
         nav {
-            flex-grow: 1;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav ul {
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links {
+            display: flex;
             list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
         }
 
-        .dropdown {
+        .nav-item {
             position: relative;
+            margin-left: 30px;
         }
 
-        nav a {
-            color: #E2E8F0;
+        .nav-item > a {
+            color: white;
             text-decoration: none;
+            font-size: 13px;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 0;
             display: flex;
             align-items: center;
-            white-space: nowrap;
+            transition: 0.3s;
         }
 
-        nav a:hover, nav a.ativo {
-            color: var(--cor-destaque);
+        .nav-item > a::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 10px;
+            color: var(--accent-gold);
         }
 
-        .seta {
-            font-size: 0.6rem;
-            margin-left: 5px;
-            color: #A0AEC0;
-        }
+        .nav-item:hover > a { color: var(--accent-gold); }
 
-        /* SUBMENU (DROPDOWN CORRIGIDO) */
+        /* SUBMENUS */
         .submenu {
-            display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--cor-primaria);
-            min-width: 240px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            border-top: 3px solid var(--cor-destaque);
-            border-radius: 0 0 6px 6px;
-            flex-direction: column;
-            padding: 0.5rem 0;
-            z-index: 1100;
-        }
-
-        .dropdown:hover .submenu {
-            display: flex;
-        }
-
-        .submenu li { width: 100%; }
-
-        .submenu a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            font-size: 0.95rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: white;
+            min-width: 220px;
+            list-style: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-radius: 0 0 4px 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
             transition: all 0.3s ease;
+            border-top: 3px solid var(--accent-gold);
         }
 
-        .submenu a:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding-left: 1.8rem;
-            color: var(--cor-destaque);
+        .submenu li a {
+            color: var(--primary-blue);
+            padding: 12px 20px;
+            display: block;
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* SEÇÃO HERO INTERNA */
+        .submenu li a:hover {
+            background-color: #f9f9f9;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* --- HERO INTERNA (GELOBO ADAPTADO) --- */
         .hero-interna {
-            background-color: #2B6CB0;
-            background-image: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
-            color: white;
-            padding: 4rem 5%;
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 60px;
             text-align: center;
+            color: white;
         }
 
         .hero-interna h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
-        /* CONTEÚDO PRINCIPAL */
+        .hero-interna p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- CONTEÚDO --- */
         .conteudo-sobre {
-            max-width: 1000px;
-            margin: 4rem auto;
-            padding: 0 5%;
+            padding: 60px 0;
             flex: 1;
         }
 
         .conteudo-sobre h2 {
-            color: var(--cor-primaria);
+            color: var(--primary-blue);
             font-size: 1.8rem;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             margin-bottom: 1rem;
-            border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 0.5rem;
-            display: inline-block;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 15px;
         }
 
         .conteudo-sobre p {
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--cor-secundaria);
-            text-align: left;
+            color: #555;
         }
 
-        /* BOX ESTRUTURA (SLU) */
+        /* BOX SLU */
         .box-slu {
             background: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--cor-destaque);
-            margin: 2.5rem 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 40px 0;
+            border: 1px solid #eee;
         }
 
-        .box-slu ul { list-style: none; }
-
+        .box-slu ul { list-style: none; margin-top: 20px; }
         .box-slu ul li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
+            margin-bottom: 12px;
+            padding-left: 25px;
             position: relative;
-            color: var(--cor-secundaria);
         }
 
         .box-slu ul li::before {
-            content: "✦";
-            color: var(--cor-destaque);
+            content: "→";
+            color: var(--accent-gold);
             position: absolute;
             left: 0;
-            font-size: 1.2rem;
+            font-weight: bold;
         }
 
         /* GRID VALORES */
         .grid-valores {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .card-valor {
             background: white;
-            padding: 2rem;
+            padding: 30px;
             border-radius: 8px;
-            border-top: 4px solid var(--cor-primaria);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
         }
 
         .card-valor:hover {
             transform: translateY(-5px);
-            border-top-color: var(--cor-destaque);
+            border-bottom: 3px solid var(--accent-gold);
         }
 
         .card-valor h3 {
-            color: var(--cor-primaria);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
         }
 
-        /* RODAPÉ */
+        /* --- FOOTER --- */
         footer {
-            background-color: var(--cor-primaria);
+            background-color: var(--primary-blue);
             color: white;
+            padding: 40px 0;
             text-align: center;
-            padding: 3rem 5%;
-            margin-top: 5rem;
+            border-top: 2px solid var(--accent-gold);
         }
 
-        footer p { color: #A0AEC0; margin-top: 0.5rem; }
+        .footer-brand { color: var(--accent-gold); font-weight: 700; margin-bottom: 5px; }
+        .footer-copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 15px; display: block; }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 992px) {
-            header { flex-direction: column; gap: 1rem; padding: 1.5rem 5%; }
-            nav { width: 100%; }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-            .submenu { position: static; width: 100%; box-shadow: none; }
-            .grid-valores { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-interna h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-      <header>
-        <div class="logo">ACAJ<span>.</span></div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html">Início <span class="seta">▼</span></a>
+    <header>
+        <nav class="container">
+            <div class="logo">ACAJ<span>.</span></div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html">Início</a>
                     <ul class="submenu">
                         <li><a href="sobre.html">Sobre a Consultoria</a></li>
-                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
+                        <li><a href="#">Inteligência Comercial</a></li>
                     </ul>
                 </li>
-                
-                <li class="dropdown">
-                    <a href="#">Prevenção <span class="seta">▼</span></a>
+                <li class="nav-item">
+                    <a href="#">Prevenção</a>
                     <ul class="submenu">
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Análise de Risco</a></li>
+                        <li><a href="#">Compliance</a></li>
                     </ul>
                 </li>
-                
-                <li class="dropdown">
-                    <a href="#">Imóveis <span class="seta">▼</span></a>
+                <li class="nav-item">
+                    <a href="#">Imóveis</a>
                     <ul class="submenu">
                         <li><a href="#">Avaliação</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Leilões</a></li>
                     </ul>
                 </li>
-
-                <li class="dropdown">
-                    <a href="financa.html">Finança <span class="seta">▼</span></a>
+                <li class="nav-item">
+                    <a href="financa.html">Finanças</a>
                     <ul class="submenu">
                         <li><a href="analise_tecnica.html">Análise Técnica</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Mercado</a></li>
                     </ul>
                 </li>
             </ul>
@@ -291,51 +289,52 @@
     </header>
 
     <section class="hero-interna">
-        <h1>Sobre a Consultoria ACAJ</h1>
-        <p>Conheça a estrutura e os princípios que guiam nossas análises e estruturações comerciais.</p>
+        <div class="container">
+            <h1>Sobre a Consultoria ACAJ</h1>
+            <p>Conheça a estrutura e os princípios que guiam nossas análises e estruturações comerciais.</p>
+        </div>
     </section>
 
-    <main class="conteudo-sobre">
+    <main class="container conteudo-sobre">
         <h2>A nossa essência</h2>
-        <p>Vivemos a era da conexão, onde dados se tornam decisões, tecnologia ganha propósitos e inovação encontra impacto real. Este site é mais que uma vitrine, é um ponto de encontro entre pessoas, instituições, inteligência tecnológica e compromisso social. Aqui, a transformação começou e com um clique o amanhã se torna eficiente, justo e próspero.</p>
-        <p>Trabalhamos com a operação de um negócio único, organizando informações e preparando interessados com técnicas que suprem a necessidade das demandas atuais. A essência da ACAJ está enraizada no compromisso com o impacto social, onde, por meio da tecnologia e da inteligência aplicada promovemos um ambiente justo e alinhado às reais necessidades.</p>
+        <p>Vivemos a era da conexão, onde dados se tornam decisões, tecnologia ganha propósitos e inovação encontra impacto real. Este site é mais que uma vitrine, é um ponto de encontro entre pessoas, instituições, inteligência tecnológica e compromisso social.</p>
+        <p>Trabalhamos com a operação de um negócio único, organizando informações e preparando interessados com técnicas que suprem a necessidade das demandas atuais. A essência da ACAJ está enraizada no compromisso com o impacto social, onde, por meio da tecnologia e da inteligência aplicada promovemos um ambiente justo.</p>
 
         <h2>Nossa Estrutura: Inovação e Segurança</h2>
         <p>Somos constituídos sob o modelo de <strong>Sociedade Limitada Unipessoal (SLU)</strong>.</p>
         
         <div class="box-slu">
-            <p style="margin-bottom: 1.5rem;">A SLU permite operar com a agilidade de um consultor focado, mas com o profissionalismo e a segurança jurídica de uma empresa de responsabilidade limitada:</p>
+            <p>A SLU permite operar com a agilidade de um consultor focado, mas com o profissionalismo e a segurança jurídica de uma empresa de responsabilidade limitada:</p>
             <ul>
-                <li><strong>Decisões Ágeis:</strong> Sem engessamento burocrático, adaptamos soluções rapidamente à sua realidade.</li>
-                <li><strong>Atendimento Direto:</strong> A visão do estrategista presente em cada etapa do processo.</li>
-                <li><strong>Transparência:</strong> Total regularidade e responsabilidade jurídica em todos os contratos.</li>
+                <li><strong>Decisões Ágeis:</strong> Adaptamos soluções rapidamente à sua realidade.</li>
+                <li><strong>Atendimento Direto:</strong> A visão do estrategista presente em cada etapa.</li>
+                <li><strong>Transparência:</strong> Total regularidade e responsabilidade jurídica.</li>
             </ul>
         </div>
 
-        <h2>Nossa Missão</h2>
-        <p>Entregar clareza, processos validados e estratégias sustentáveis para empresários e gestores, garantindo que suas operações de vendas sejam previsíveis, rentáveis e escaláveis.</p>
-
-        <h2>Nossos Valores</h2>
+        <h2>Missão e Valores</h2>
         <div class="grid-valores">
             <div class="card-valor">
                 <h3>Comprometimento</h3>
-                <p>A entrega final de cada diagnóstico ou auditoria leva a nossa assinatura e reputação como garantia de viabilidade.</p>
+                <p>A entrega final de cada diagnóstico leva a nossa assinatura e reputação como garantia de viabilidade.</p>
             </div>
             <div class="card-valor">
                 <h3>Inovação</h3>
-                <p>Buscamos metodologias modernas e validadas de estruturação de vendas e mapeamento de jornadas de compra.</p>
+                <p>Buscamos metodologias modernas de estruturação de vendas e mapeamento de jornadas de compra.</p>
             </div>
             <div class="card-valor">
                 <h3>Proximidade</h3>
-                <p>Construímos parcerias verdadeiras, entendendo a fundo a realidade da sua operação e do seu mercado local.</p>
+                <p>Construímos parcerias verdadeiras, entendendo a fundo a realidade da sua operação.</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <h2>ACAJ Consultoria</h2>
-        <p>Inteligência Comercial, Estruturação e Escala de Negócios</p>
-        <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
+        <div class="container">
+            <div class="footer-brand">ACAJ Consultoria</div>
+            <div>Inovação Tecnológica - Inteligência Estratégica</div>
+            <span class="footer-copyright">© 2026 ACAJ. Todos os direitos reservados.</span>
+        </div>
     </footer>
 
 </body>
