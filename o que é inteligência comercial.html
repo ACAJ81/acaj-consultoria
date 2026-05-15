@@ -4,278 +4,300 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O que é Inteligência Comercial | ACAJ Consultoria</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* RESET E FONTES */
+        /* --- CSS RESET & BASE --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* VARIÁVEIS DE CORES */
         :root {
-            --cor-primaria: #1A365D; 
-            --cor-secundaria: #4A5568; 
-            --cor-destaque: #D69E2E; 
-            --cor-fundo: #F7FAFC;
-            --cor-texto: #2D3748;
+            --primary-blue: #0a2540;
+            --accent-gold: #c5a059;
+            --text-dark: #333;
+            --text-light: #ffffff;
+            --bg-light: #f4f7f9;
         }
 
         body {
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.7;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* CABEÇALHO PADRONIZADO E CENTRALIZADO */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER & NAVIGATION (PADRÃO ACAJ) --- */
         header {
-            background-color: var(--cor-primaria);
-            color: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--cor-destaque);
-            position: relative;
+            background: var(--primary-blue);
+            padding: 15px 0;
+            border-bottom: 2px solid var(--accent-gold);
+            position: fixed;
+            width: 100%;
+            top: 0;
             z-index: 1000;
         }
 
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            flex-shrink: 0;
-        }
-
-        .logo span { color: var(--cor-destaque); }
-
-        /* NAVEGAÇÃO CENTRALIZADA */
         nav {
-            flex-grow: 1;
             display: flex;
-            justify-content: center;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .dropdown {
-            position: relative; 
-        }
-
-        nav a {
-            color: #E2E8F0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-        }
-
-        .seta {
-            font-size: 0.6rem;
-            margin-left: 5px;
-            color: #A0AEC0;
-        }
-
-        /* SUBMENU (DROPDOWN CORRIGIDO) */
-        .submenu {
-            display: none; 
-            position: absolute;
-            top: 100%; 
-            left: 0;
-            background-color: var(--cor-primaria);
-            min-width: 240px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            border-top: 3px solid var(--cor-destaque);
-            border-radius: 0 0 6px 6px;
-            flex-direction: column; 
-            padding: 0.5rem 0;
-            z-index: 1100; 
-        }
-
-        .dropdown:hover .submenu {
-            display: flex;
-        }
-
-        .submenu li { width: 100%; }
-
-        .submenu a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            font-size: 0.95rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-            transition: all 0.3s ease;
-        }
-
-        .submenu a:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding-left: 1.8rem; 
-            color: var(--cor-destaque);
-        }
-
-        /* SEÇÃO HERO */
-        .hero {
-            background-color: #2B6CB0;
-            background-image: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+        .logo {
             color: white;
-            padding: 6rem 5%;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .nav-item > a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .nav-item > a::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 10px;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover > a { color: var(--accent-gold); }
+
+        /* SUBMENUS */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            list-style: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-radius: 0 0 4px 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .submenu li a {
+            color: var(--primary-blue);
+            padding: 12px 20px;
+            display: block;
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .submenu li a:hover {
+            background-color: #f9f9f9;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* --- HERO SECTION INTERNA --- */
+        .hero-interna {
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-interna h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-interna p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- PILARES (GRID) --- */
+        .pilares {
+            padding: 80px 0;
             text-align: center;
         }
-
-        .hero h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #E2E8F0;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        /* SEÇÕES DE CONTEÚDO */
-        section { padding: 5rem 5%; }
 
         .section-title {
-            text-align: center;
+            color: var(--primary-blue);
             font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--cor-primaria);
-            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        /* GRID DOS PILARES */
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 30px;
         }
 
         .card {
             background: white;
-            padding: 2.5rem;
+            padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--cor-primaria);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            height: 100%;
+            border-top: 4px solid var(--primary-blue);
+            text-align: left;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-top-color: var(--cor-destaque);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            border-top-color: var(--accent-gold);
         }
 
         .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            color: var(--cor-primaria);
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid var(--cor-fundo);
-            padding-bottom: 0.5rem;
         }
 
         .card p {
-            color: var(--cor-secundaria);
+            color: #666;
             font-size: 1rem;
-            text-align: left; /* Mudado de justify para melhor leitura em telas menores */
         }
 
-        /* CONCLUSÃO/INTUITO */
+        /* --- SEÇÃO INTUITO --- */
+        .intuito {
+            background-color: #f8fafc;
+            padding: 80px 0;
+        }
+
         .intuito-container {
             background: white;
-            padding: 4rem 3rem;
-            border-radius: 10px;
+            padding: 60px 40px;
+            border-radius: 12px;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
         }
 
         .highlight-box {
-            margin-top: 2.5rem;
-            padding: 2.5rem;
-            background-color: #F7FAFC;
-            border-left: 5px solid var(--cor-destaque);
-            font-style: italic;
-            font-size: 1.25rem;
-            color: var(--cor-primaria);
-            line-height: 1.6;
-        }
-
-        /* RODAPÉ */
-        footer {
-            background-color: var(--cor-primaria);
+            margin-top: 40px;
+            padding: 35px;
+            background-color: var(--primary-blue);
             color: white;
-            text-align: center;
-            padding: 3rem 5%;
+            border-left: 6px solid var(--accent-gold);
+            font-style: italic;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            border-radius: 0 8px 8px 0;
         }
 
-        footer p { color: #A0AEC0; margin-top: 0.5rem; }
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid var(--accent-gold);
+            margin-top: auto;
+        }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 992px) {
-            header { flex-direction: column; gap: 1rem; }
-            nav { width: 100%; }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-            .submenu { position: static; width: 100%; box-shadow: none; }
-            section { padding: 3rem 5%; }
+        .footer-brand { color: var(--accent-gold); font-weight: 700; margin-bottom: 5px; }
+        .footer-copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 15px; display: block; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-interna h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-      <header>
-        <div class="logo">ACAJ<span>.</span></div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html">Início <span class="seta">▼</span></a>
+    <header>
+        <nav class="container">
+            <div class="logo">ACAJ<span>.</span></div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html">Início</a>
                     <ul class="submenu">
                         <li><a href="sobre.html">Sobre a Consultoria</a></li>
-                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
+                        <li><a href="inteligencia_comercial.html">Inteligência Comercial</a></li>
                     </ul>
                 </li>
-                
-                <li class="dropdown">
-                    <a href="#">Prevenção <span class="seta">▼</span></a>
+                <li class="nav-item">
+                    <a href="#">Prevenção</a>
                     <ul class="submenu">
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Análise de Risco</a></li>
+                        <li><a href="#">Compliance</a></li>
                     </ul>
                 </li>
-                
-                <li class="dropdown">
-                    <a href="#">Imóveis <span class="seta">▼</span></a>
+                <li class="nav-item">
+                    <a href="#">Imóveis</a>
                     <ul class="submenu">
                         <li><a href="#">Avaliação</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Leilões</a></li>
                     </ul>
                 </li>
-
-                <li class="dropdown">
-                    <a href="financa.html">Finança <span class="seta">▼</span></a>
+                <li class="nav-item">
+                    <a href="financa.html">Finanças</a>
                     <ul class="submenu">
                         <li><a href="analise_tecnica.html">Análise Técnica</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Mercado de Capitais</a></li>
                     </ul>
                 </li>
             </ul>
@@ -283,47 +305,53 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1>O que é Nossa Inteligência Comercial?</h1>
-            <p>O mundo dos negócios é um ecossistema vivo, onde oportunidade, estruturação e confiança operam em sintonia. Nossa inteligência nasce de uma leitura estratégica e profunda do mercado.</p>
+        <section class="hero-interna">
+            <div class="container">
+                <h1>Nossa Inteligência Comercial</h1>
+                <p>O mundo dos negócios é um ecossistema vivo, onde oportunidade, estruturação e confiança operam em sintonia. Nossa inteligência nasce de uma leitura estratégica e profunda do mercado.</p>
+            </div>
         </section>
 
-        <section id="expertise">
+        <section class="pilares container">
             <h2 class="section-title">Os Pilares da Nossa Atuação</h2>
             <div class="grid-container">
-                <div class="card" id="mercado">
+                <div class="card">
                     <h3>O Mercado</h3>
-                    <p>Termômetro das transações econômicas, o Mercado é um ambiente dinâmico que evolui sob o impacto constante de variáveis de curto, médio e longo prazo. Dominamos este ambiente para que as decisões de investimento sejam precisas e críticas.</p>
+                    <p>Termômetro das transações econômicas, o Mercado é um ambiente dinâmico que evolui sob o impacto de variáveis globais. Dominamos este ambiente para que decisões de investimento sejam precisas e críticas.</p>
                 </div>
 
-                <div class="card" id="comercio">
+                <div class="card">
                     <h3>O Comércio</h3>
-                    <p>A engenharia do Comércio é o sistema tático que neutraliza barreiras geográficas, temporais e de risco. Garantimos que a troca de valor ocorra de forma fluida, segura e rentável, independente das oscilações externas.</p>
+                    <p>A engenharia do Comércio é o sistema tático que neutraliza barreiras e riscos. Garantimos que a troca de valor ocorra de forma fluida, segura e rentável, independente das oscilações externas.</p>
                 </div>
 
-                <div class="card" id="marketing">
+                <div class="card">
                     <h3>O Marketing</h3>
-                    <p>A ponte que conecta o potencial de mercado ao resultado real. Para nós, o Marketing é a Ciência de mapear as reais necessidades e o perfil comportamental do público, construindo confiança inabalável entre oferta e demanda.</p>
+                    <p>A Ciência de mapear necessidades e perfis comportamentais. Conectamos o potencial de mercado ao resultado real, construindo confiança inabalável entre oferta e demanda.</p>
                 </div>
             </div>
         </section>
 
-        <section id="intuito" style="background-color: #EDF2F7;">
-            <div class="intuito-container">
-                <h2 style="font-size: 2rem;">Nossa Missão</h2>
-                <p style="font-size: 1.1rem; color: var(--cor-secundaria);">Acreditamos que a complexidade não deve ser um obstáculo, mas uma oportunidade de diferenciação através da inteligência aplicada.</p>
-                
-                <div class="highlight-box">
-                    "O intuito de nossa Consultoria é transformar a complexidade do mercado em clareza, a burocracia do Comércio em processos eficientes, e a comunicação do marketing em confiança. Isso é Inteligência Comercial."
+        <section class="intuito">
+            <div class="container">
+                <div class="intuito-container">
+                    <h2 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 20px;">Nossa Missão</h2>
+                    <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Acreditamos que a complexidade não deve ser um obstáculo, mas uma oportunidade de diferenciação através da inteligência aplicada.</p>
+                    
+                    <div class="highlight-box">
+                        "O intuito de nossa Consultoria é transformar a complexidade do mercado em clareza, a burocracia do Comércio em processos eficientes, e a comunicação do marketing em confiança."
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <h2>ACAJ Consultoria</h2>
-        <p>Inteligência Comercial, Estruturação e Escala de Negócios</p>
-        <p>&copy; 2026 ACAJ. Todos os direitos reservados.</p>
+        <div class="container">
+            <div class="footer-brand">ACAJ Consultoria</div>
+            <div>Inovação Tecnológica - Inteligência Estratégica</div>
+            <span class="footer-copyright">© 2026 ACAJ. Todos os direitos reservados.</span>
+        </div>
     </footer>
 
 </body>
