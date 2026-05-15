@@ -39,7 +39,7 @@
             padding: 0 20px;
         }
 
-        /* --- HEADER & NAVIGATION (PADRÃO ATUAL) --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             background: var(--primary-blue);
             padding: 15px 0;
@@ -135,13 +135,13 @@
             transform: translateY(0);
         }
 
-        /* --- HERO INTERNA (GELOBO ADAPTADO) --- */
+        /* --- HERO INTERNA --- */
         .hero-interna {
             background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), 
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 120px 0 60px;
+            padding: 140px 0 80px;
             text-align: center;
             color: white;
         }
@@ -152,91 +152,130 @@
             font-weight: 700;
         }
 
-        .hero-interna p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* --- CONTEÚDO --- */
-        .conteudo-sobre {
+        /* --- SEÇÕES PRINCIPAIS --- */
+        .secao-conteudo {
             padding: 60px 0;
-            flex: 1;
         }
 
-        .conteudo-sobre h2 {
+        h2 {
             color: var(--primary-blue);
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             border-left: 4px solid var(--accent-gold);
             padding-left: 15px;
         }
 
-        .conteudo-sobre p {
-            margin-bottom: 1.5rem;
+        .texto-essencia {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* MISSÃO E VISÃO */
+        .m-v-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .card-mv {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .card-mv.visao {
+            border-top-color: var(--accent-gold);
+        }
+
+        .card-mv h3 {
+            color: var(--primary-blue);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lista-visao {
+            list-style: none;
+        }
+
+        .lista-visao li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
             color: #555;
         }
 
-        /* BOX SLU */
-        .box-slu {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 40px 0;
-            border: 1px solid #eee;
-        }
-
-        .box-slu ul { list-style: none; margin-top: 20px; }
-        .box-slu ul li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .box-slu ul li::before {
-            content: "→";
+        .lista-visao li::before {
+            content: "✦";
             color: var(--accent-gold);
             position: absolute;
             left: 0;
-            font-weight: bold;
         }
 
-        /* GRID VALORES */
+        /* VALORES (GRID 3 COLUNAS) */
+        .secao-valores {
+            background-color: #f8fafc;
+            padding: 80px 0;
+        }
+
         .grid-valores {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
-            margin-top: 30px;
         }
 
         .card-valor {
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
-            border-bottom: 3px solid transparent;
+            border-bottom: 4px solid transparent;
         }
 
         .card-valor:hover {
             transform: translateY(-5px);
-            border-bottom: 3px solid var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
         }
 
-        .card-valor h3 {
+        .card-valor h4 {
             color: var(--primary-blue);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
         }
 
-        /* --- FOOTER --- */
+        .card-valor h4 span {
+            color: var(--accent-gold);
+            margin-right: 10px;
+            font-weight: 800;
+        }
+
+        .card-valor p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* BOX SLU */
+        .box-slu {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-top: 40px;
+        }
+
+        /* FOOTER */
         footer {
             background-color: var(--primary-blue);
             color: white;
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
             border-top: 2px solid var(--accent-gold);
         }
@@ -244,15 +283,15 @@
         .footer-brand { color: var(--accent-gold); font-weight: 700; margin-bottom: 5px; }
         .footer-copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 15px; display: block; }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-interna h1 { font-size: 1.8rem; }
+        @media (max-width: 900px) {
+            .m-v-container { grid-template-columns: 1fr; }
+            .hero-interna h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-   <header>
+    <header>
         <nav class="container">
             <div class="logo">ACAJ<span>.</span></div>
             <ul class="nav-links">
@@ -260,75 +299,92 @@
                     <a href="index.html">Início</a>
                     <ul class="submenu">
                         <li><a href="sobre.html">Sobre a Consultoria</a></li>
-                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
-                        <li><a href="#">Empreendedorismo</a></li>
+                        <li><a href="o que é inteligência comercial.html">Inteligência Comercial</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#">Prevenção</a>
-                    <ul class="submenu">
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#">Imóveis</a>
-                    <ul class="submenu">
-                        <li><a href="#">Avaliação Mercadológica</a></li>
-                        <li><a href="#">Leilões</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="financa.html">Finanças</a>
-                    <ul class="submenu">
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>
     </header>
 
-
     <section class="hero-interna">
         <div class="container">
-            <h1>Sobre a Consultoria ACAJ</h1>
-            <p>Conheça a estrutura e os princípios que guiam nossas análises e estruturações comerciais.</p>
+            <h1>Sobre a ACAJ Consultoria</h1>
+            <p>Inovação tecnológica e conhecimento estratégico orientando os rumos da economia.</p>
         </div>
     </section>
 
-    <main class="container conteudo-sobre">
-        <h2>A nossa essência</h2>
-        <p>Vivemos a era da conexão, onde dados se tornam decisões, tecnologia ganha propósitos e inovação encontra impacto real. Este site é mais que uma vitrine, é um ponto de encontro entre pessoas, instituições, inteligência tecnológica e compromisso social.</p>
-        <p>Trabalhamos com a operação de um negócio único, organizando informações e preparando interessados com técnicas que suprem a necessidade das demandas atuais. A essência da ACAJ está enraizada no compromisso com o impacto social, onde, por meio da tecnologia e da inteligência aplicada promovemos um ambiente justo.</p>
+    <main>
+        <section class="container secao-conteudo">
+            <h2>A Nossa Essência</h2>
+            <p class="texto-essencia">
+                Vivemos a era da conexão, onde dados se tornam decisões, tecnologia ganha propósitos e inovação encontra impacto real. 
+                A ACAJ Consultoria atua na organização de informações e preparação de interessados com técnicas que suprem as 
+                demandas atuais, promovendo um ambiente justo e alinhado às reais necessidades.
+            </p>
 
-        <h2>Nossa Estrutura: Inovação e Segurança</h2>
-        <p>Somos constituídos sob o modelo de <strong>Sociedade Limitada Unipessoal (SLU)</strong>.</p>
-        
-        <div class="box-slu">
-            <p>A SLU permite operar com a agilidade de um consultor focado, mas com o profissionalismo e a segurança jurídica de uma empresa de responsabilidade limitada:</p>
-            <ul>
-                <li><strong>Decisões Ágeis:</strong> Adaptamos soluções rapidamente à sua realidade.</li>
-                <li><strong>Atendimento Direto:</strong> A visão do estrategista presente em cada etapa.</li>
-                <li><strong>Transparência:</strong> Total regularidade e responsabilidade jurídica.</li>
-            </ul>
-        </div>
+            <div class="m-v-container">
+                <div class="card-mv">
+                    <h3>Missão</h3>
+                    <p>Impulsionar a transformação da sociedade por meio da inovação tecnológica e do conhecimento estratégico, orientando os rumos da Economia.</p>
+                </div>
+                <div class="card-mv visao">
+                    <h3>Visão</h3>
+                    <ul class="lista-visao">
+                        <li>Ser referência na promoção da inovação tecnológica aplicada à Gestão Pública e aos setores estratégicos da Economia.</li>
+                        <li>Contribuir ativamente com a transparência e a inteligência nas negociações.</li>
+                        <li>Desenvolver soluções que vão além da entrega, para fortalecer as instituições e proporcionar uma política íntegra.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <h2>Missão e Valores</h2>
-        <div class="grid-valores">
-            <div class="card-valor">
-                <h3>Comprometimento</h3>
-                <p>A entrega final de cada diagnóstico leva a nossa assinatura e reputação como garantia de viabilidade.</p>
+        <section class="secao-valores">
+            <div class="container">
+                <h2 style="text-align: center; border: none; margin-bottom: 50px; padding: 0;">Nossos Valores</h2>
+                <div class="grid-valores">
+                    <div class="card-valor">
+                        <h4><span>1.</span> Impacto Social</h4>
+                        <p>Atuamos com propósito, aperfeiçoando a transformação por meio da Tecnologia Inovadora.</p>
+                    </div>
+                    <div class="card-valor">
+                        <h4><span>2.</span> Ética e Transparência</h4>
+                        <p>Mantemos uma conduta íntegra, promovendo a confiança para uma sociedade feliz.</p>
+                    </div>
+                    <div class="card-valor">
+                        <h4><span>3.</span> Inovação Contínua</h4>
+                        <p>Estamos em constante transformação para antecipar as necessidades do mercado.</p>
+                    </div>
+                    <div class="card-valor">
+                        <h4><span>4.</span> Excelência Técnica</h4>
+                        <p>Valorizamos o rigor, a qualidade e a competência em tudo o que entregamos.</p>
+                    </div>
+                    <div class="card-valor">
+                        <h4><span>5.</span> Colaboração e Diálogo</h4>
+                        <p>Agimos com fé sob a força da escuta ativa, construindo em conjunto com governos e empresas.</p>
+                    </div>
+                    <div class="card-valor">
+                        <h4><span>6.</span> Visão Estratégica</h4>
+                        <p>Focamos no presente, conectando dados e pessoas para decidir com inteligência.</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-valor">
-                <h3>Inovação</h3>
-                <p>Buscamos metodologias modernas de estruturação de vendas e mapeamento de jornadas de compra.</p>
+        </section>
+
+        <section class="container secao-conteudo">
+            <h2>Segurança Jurídica</h2>
+            <div class="box-slu">
+                <p>A ACAJ é constituída sob o modelo de <strong>Sociedade Limitada Unipessoal (SLU)</strong>, garantindo agilidade consultiva com a proteção jurídica de uma empresa de responsabilidade limitada. Focamos em transparência absoluta em todos os nossos contratos e parcerias.</p>
             </div>
-            <div class="card-valor">
-                <h3>Proximidade</h3>
-                <p>Construímos parcerias verdadeiras, entendendo a fundo a realidade da sua operação.</p>
-            </div>
-        </div>
+        </section>
     </main>
 
     <footer>
