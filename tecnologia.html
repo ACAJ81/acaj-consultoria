@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACAJ | Inovação e Impacto</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0a2540;
+            --accent-gold: #c5a059;
+            --text-light: #ffffff;
+            --overlay: rgba(10, 37, 64, 0.8); /* Overlay para garantir leitura do texto */
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--primary-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: var(--primary-blue);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .nav-item > a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .nav-item > a::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 10px;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover > a { color: var(--accent-gold); }
+
+        /* --- SUBMENUS --- */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            list-style: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 0 0 4px 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .submenu li a {
+            color: var(--primary-blue);
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .submenu li a:hover {
+            background-color: #f9f9f9;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* --- HERO SECTION COM O GLOBO --- */
+        .main-hero {
+            flex: 1;
+            /* Imagem do Globo com Conexões */
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 0 auto 30px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .footer-brand { color: var(--accent-gold); font-weight: 700; margin-bottom: 5px; }
+        .footer-tagline { font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px; }
+        .footer-copyright { font-size: 0.75rem; opacity: 0.4; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">ACAJ<span>.</span></div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html">Início</a>
+                    <ul class="submenu">
+                        <li><a href="sobre.html">Sobre a Consultoria</a></li>
+                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
+                        <li><a href="#">Empreendedorismo</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Prevenção</a>
+                    <ul class="submenu">
+                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">&&&&&</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Imóveis</a>
+                    <ul class="submenu">
+                        <li><a href="#">Avaliação Mercadológica</a></li>
+                        <li><a href="#">Leilões</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="financa.html">Finanças</a>
+                    <ul class="submenu">
+                        <li><a href="analise_do_mercado_financeiro.html">Análise do Mercado Financeiro</a></li>
+                        <li><a href="#">&&&&&</a></li>
+                    </ul>
+                     <li class="nav-item">
+                     <a href="#">Tecnologia</a>
+                     <ul class="submenu">
+                        <li><a href="#">Loja</a></li>
+                        <li><a href="#">Inovação</a></li>
+                        <li><a href="#">Computação</a></li>
+                        <li><a href="#">Inteligência Artificial</a></li>
+                   </ul>
+               </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-hero">
+        <div class="hero-content">
+            <div class="divider"></div>
+            <h1>Tecnologia</h1>
+            <p>Estamos em um undo contemporâneo, tudo passa mais depressa e a rapidez em tomar decisões precisas é a moeda de ouro do momento, é a garantia do processo inonvador da civilização</p>
+            <p>Hoje em dia, a Tecnologia tornou-se o núcleo da inteligência do mercado. Sua aplicação é a essência de todo o conhecimento gerado para resolver problemas e otimizar os processos humanos.</p>
+            <p>Infraestrutura fundamental, a Tecnologia é o sustentáculo dacomunicação cotidiana até sistemas complexos de análise.</p>
+          <br>
+            <p>"O sucesso econômico de uma nação não depende mais do tamanho da força de trabalho braçal ou de reservas naturais, mas da infraestrutura digital e da capacidade das pessoas em interpretar análises complexas e criar soluções inovadoras."</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">ACAJ Consultoria</div>
+            <div class="footer-tagline">Inovação Tecnológica - Inteligência Estratégica</div>
+            <div class="footer-copyright">
+                © 2026 ACAJ. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
