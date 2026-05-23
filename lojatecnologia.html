@@ -164,10 +164,9 @@
 
         .product-grid {
             display: grid;
-            /* Garante que os cartões têm a mesma largura e se alinham na grelha */
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
-            align-items: stretch; /* Estica os cartões para terem a mesma altura total */
+            align-items: stretch;
         }
 
         /* Cartão do Produto */
@@ -180,7 +179,7 @@
             display: flex;
             flex-direction: column;
             border-bottom: 4px solid var(--accent-gold);
-            height: 100%; /* Garante que todos os cartões da mesma linha acompanham o mais alto */
+            height: 100%;
         }
 
         .product-card:hover {
@@ -188,28 +187,31 @@
             box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3);
         }
 
-        /* CAIXA DA IMAGEM (O SEGREDO PARA O ALINHAMENTO) */
+        /* --- O SEGREDO DO PREENCHIMENTO PERFEITO --- */
         .product-image-container {
             width: 100%;
-            height: 280px; /* Todas as imagens terão exatamente este espaço */
-            background-color: #f9f9f9; /* Fundo suave para imagens que não preencham tudo */
+            height: 280px; /* Mantém a altura igual para todos */
+            background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            overflow: hidden; /* Corta o que sobrar para fora */
+            padding: 0; /* Espaçamento zero, encosta nas bordas */
         }
 
         .product-image {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Mantém a proporção sem cortar o livro ou a câmara */
+            object-fit: cover; /* Faz o preenchimento de 100% da caixa */
         }
+
+        /* ------------------------------------------- */
 
         .product-details {
             padding: 20px;
             display: flex;
             flex-direction: column;
-            flex: 1; /* Faz com que esta secção empurre o botão para baixo */
+            flex: 1; 
         }
 
         .shopee-badge {
@@ -241,7 +243,7 @@
         }
 
         .btn-buy {
-            margin-top: auto; /* Empurra o botão exatamente para a base do cartão */
+            margin-top: auto; 
             background-color: var(--accent-gold);
             color: #fff;
             text-decoration: none;
@@ -275,13 +277,6 @@
             .nav-links { display: none; }
             .store-header h1 { font-size: 2rem; }
         }
-        
-        /* Classe para uniformizar o tamanho das imagens dos produtos */
-.img-produto {
-    width: 300px; /* Defina a largura fixa desejada */
-    height: 200px; /* Defina a altura fixa desejada */
-    object-fit: cover; /* Mantém a proporção da imagem e preenche o espaço, cortando as bordas se necessário */
-}
     </style>
 </head>
 <body>
@@ -348,19 +343,19 @@
                     <span class="shopee-badge">Oferta Exclusiva</span>
                     <h2 class="product-title">A IA e o Problema da Alucinação</h2>
                     <div class="product-price">R$ 5,22</div>
-                    <a href="#" target="_blank" class="btn-buy">Comprar!</a>
+                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="product-image-container">
-                     <img src="minicamera.png" class="product-image">
+                    <img src="minicamera.png" class="product-image">
                 </div>
                 <div class="product-details">
                     <span class="shopee-badge">Oferta Shopee</span>
                     <h2 class="product-title">4 Câmeras A9 HD Mini com visão noturna</h2>
                     <div class="product-price">R$ 19,59</div>
-                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
+                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
@@ -372,7 +367,7 @@
                     <span class="shopee-badge">Oferta Shopee</span>
                     <h2 class="product-title">Headset com Cancelamento de Ruído</h2>
                     <div class="product-price">R$ 189,90</div>
-                    <a href="#" target="_blank" class="btn-buy">Ver na Shopee</a>
+                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Ver na Shopee</a>
                 </div>
             </div>
 
