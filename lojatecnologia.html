@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Tecnologia | ACAJ Consultoria</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS RESET & BASE (Mantido do original) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0a2540;
+            --accent-gold: #c5a059;
+            --text-light: #ffffff;
+            --overlay: rgba(10, 37, 64, 0.8);
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--primary-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER & NAVIGATION (Mantido do original) --- */
+        header {
+            background: var(--primary-blue);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .nav-item > a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .nav-item > a::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 10px;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover > a { color: var(--accent-gold); }
+
+        /* --- SUBMENUS --- */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            list-style: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 0 0 4px 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .submenu li a {
+            color: var(--primary-blue);
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .submenu li a:hover {
+            background-color: #f9f9f9;
+            color: var(--accent-gold);
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* --- SESSÃO DA LOJA (NOVO) --- */
+        .store-header {
+            padding-top: 120px; /* Espaço para o menu fixo */
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .store-header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .store-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .store-container {
+            flex: 1; /* Empurra o rodapé para o final da página */
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .product-grid {
+            display: grid;
+            /* Grade automática: cria colunas de no mínimo 280px */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cartão do Produto */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3); /* Brilho dourado ao passar o mouse */
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Evita que a imagem fique esticada */
+            background-color: #f5f5f5;
+        }
+
+        .product-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .shopee-badge {
+            background: #ee4d2d; /* Laranja Oficial da Shopee */
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        .product-title {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .btn-buy {
+            margin-top: auto; /* Empurra o botão para a base do cartão */
+            background-color: var(--accent-gold);
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #a88544; /* Dourado mais escuro */
+        }
+
+        /* --- FOOTER (Mantido do original) --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .footer-brand { color: var(--accent-gold); font-weight: 700; margin-bottom: 5px; }
+        .footer-tagline { font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px; }
+        .footer-copyright { font-size: 0.75rem; opacity: 0.4; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .store-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">ACAJ<span>.</span></div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html">Início</a>
+                    <ul class="submenu">
+                        <li><a href="sobre.html">Sobre a Consultoria</a></li>
+                        <li><a href="o que é inteligência comercial.html">O que é Inteligência Comercial?</a></li>
+                        <li><a href="#">Empreendedorismo</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Prevenção</a>
+                    <ul class="submenu">
+                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">&&&&&</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Imóveis</a>
+                    <ul class="submenu">
+                        <li><a href="#">Avaliação Mercadológica</a></li>
+                        <li><a href="#">Leilões</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="financa.html">Finanças</a>
+                    <ul class="submenu">
+                        <li><a href="analise_do_mercado_financeiro.html">Análise do Mercado Financeiro</a></li>
+                        <li><a href="#">&&&&&</a></li>
+                    </ul>
+                </li>
+                 <li class="nav-item">
+                    <a href="tecnologia.html">Tecnologia</a>
+                    <ul class="submenu">
+                        <li><a href="loja.html">Loja</a></li>
+                        <li><a href="#">Inovação</a></li>
+                        <li><a href="#">Computação</a></li>
+                        <li><a href="#">Inteligência Artificial</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Título da Loja -->
+    <section class="store-header container">
+        <h1>Ferramentas e Tecnologia</h1>
+        <p>Equipamentos selecionados pela inteligência comercial da ACAJ para otimizar sua produtividade.</p>
+    </section>
+
+    <!-- Grade de Produtos -->
+    <main class="store-container">
+        <div class="product-grid">
+
+            <!-- PRODUTO 1 -->
+            <div class="product-card">
+                <img src="https://s3.amazonaws.com/CAPS-SSE/content/102b/64681467/DIGITAL_BOOK_COVER?versionId=BlZxBMcRjEeEmXS6ZCDvffflYE4o.FVD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260523T194533Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIAWBV6LQ4QK2ASUWK3%2F20260523%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ddb39f9773a42e809ee1d1490714e2a9a5e1f94a8808ce977f7f4832136d7f73">
+                <div class="product-details">
+                    <span class="amazon-badge">Oferta Exclusiva</span>
+                    <h2 class="product-title">Teclado Mecânico Sem Fio Inteligente</h2>
+                    <div class="product-price">R$ 5,22</div>
+                    <!-- Substitua o href pelo seu LINK DE AFILIADO SHOPEE -->
+                    <a href="https://www.amazon.com.br/dp/B0GMV4VB7L" target="_blank" class="btn-buy">Comprar!</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=80" alt="Monitor UltraWide" class="product-image">
+                <div class="product-details">
+                    <span class="shopee-badge">Oferta Shopee</span>
+                    <h2 class="product-title">Monitor UltraWide 29" Ideal para Análises</h2>
+                    <div class="product-price">R$ 1.150,00</div>
+                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Ver na Shopee</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Headset Anti-ruído" class="product-image">
+                <div class="product-details">
+                    <span class="shopee-badge">Oferta Shopee</span>
+                    <h2 class="product-title">Headset com Cancelamento de Ruído</h2>
+                    <div class="product-price">R$ 189,90</div>
+                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Ver na Shopee</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=500&q=80" alt="MacBook Hub" class="product-image">
+                <div class="product-details">
+                    <span class="shopee-badge">Oferta Shopee</span>
+                    <h2 class="product-title">Hub USB-C 8 em 1 Alta Velocidade</h2>
+                    <div class="product-price">R$ 95,00</div>
+                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Ver na Shopee</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">ACAJ Consultoria</div>
+            <div class="footer-tagline">Inovação Tecnológica - Inteligência Estratégica</div>
+            <div class="footer-copyright">
+                © 2026 ACAJ. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
