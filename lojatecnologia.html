@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS RESET & BASE (Mantido do original) --- */
+        /* --- CSS RESET & BASE --- */
         * {
             margin: 0;
             padding: 0;
@@ -37,7 +37,7 @@
             padding: 0 20px;
         }
 
-        /* --- HEADER & NAVIGATION (Mantido do original) --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             background: var(--primary-blue);
             padding: 15px 0;
@@ -133,9 +133,9 @@
             transform: translateY(0);
         }
 
-        /* --- SESSÃO DA LOJA (NOVO) --- */
+        /* --- SESSÃO DA LOJA --- */
         .store-header {
-            padding-top: 120px; /* Espaço para o menu fixo */
+            padding-top: 120px;
             text-align: center;
             color: white;
             margin-bottom: 40px;
@@ -155,7 +155,7 @@
         }
 
         .store-container {
-            flex: 1; /* Empurra o rodapé para o final da página */
+            flex: 1;
             max-width: 1200px;
             margin: 0 auto 60px auto;
             padding: 0 20px;
@@ -164,9 +164,10 @@
 
         .product-grid {
             display: grid;
-            /* Grade automática: cria colunas de no mínimo 280px */
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            /* Garante que os cartões têm a mesma largura e se alinham na grelha */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
+            align-items: stretch; /* Estica os cartões para terem a mesma altura total */
         }
 
         /* Cartão do Produto */
@@ -179,29 +180,40 @@
             display: flex;
             flex-direction: column;
             border-bottom: 4px solid var(--accent-gold);
+            height: 100%; /* Garante que todos os cartões da mesma linha acompanham o mais alto */
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3); /* Brilho dourado ao passar o mouse */
+            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3);
+        }
+
+        /* CAIXA DA IMAGEM (O SEGREDO PARA O ALINHAMENTO) */
+        .product-image-container {
+            width: 100%;
+            height: 280px; /* Todas as imagens terão exatamente este espaço */
+            background-color: #f9f9f9; /* Fundo suave para imagens que não preencham tudo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
 
         .product-image {
             width: 100%;
-            height: 250px;
-            object-fit: cover; /* Evita que a imagem fique esticada */
-            background-color: #f5f5f5;
+            height: 100%;
+            object-fit: contain; /* Mantém a proporção sem cortar o livro ou a câmara */
         }
 
         .product-details {
             padding: 20px;
             display: flex;
             flex-direction: column;
-            flex: 1;
+            flex: 1; /* Faz com que esta secção empurre o botão para baixo */
         }
 
         .shopee-badge {
-            background: #ee4d2d; /* Laranja Oficial da Shopee */
+            background: #ee4d2d;
             color: white;
             font-size: 0.7rem;
             padding: 4px 8px;
@@ -229,7 +241,7 @@
         }
 
         .btn-buy {
-            margin-top: auto; /* Empurra o botão para a base do cartão */
+            margin-top: auto; /* Empurra o botão exatamente para a base do cartão */
             background-color: var(--accent-gold);
             color: #fff;
             text-decoration: none;
@@ -243,10 +255,10 @@
         }
 
         .btn-buy:hover {
-            background-color: #a88544; /* Dourado mais escuro */
+            background-color: #a88544;
         }
 
-        /* --- FOOTER (Mantido do original) --- */
+        /* --- FOOTER --- */
         footer {
             background-color: var(--primary-blue);
             color: white;
@@ -313,57 +325,47 @@
         </nav>
     </header>
 
-    <!-- Título da Loja -->
     <section class="store-header container">
         <h1>Ferramentas e Tecnologia</h1>
         <p>Equipamentos selecionados pela inteligência comercial da ACAJ para otimizar sua produtividade.</p>
     </section>
 
-    <!-- Grade de Produtos -->
     <main class="store-container">
         <div class="product-grid">
 
-            <!-- PRODUTO 1 -->
             <div class="product-card">
-                <img src="capa.png">
+                <div class="product-image-container">
+                    <img src="http://googleusercontent.com/image_generation_content/182" alt="Livro IA" class="product-image">
+                </div>
                 <div class="product-details">
-                    <span class="amazon-badge">Oferta Exclusiva</span>
-                    <h2 class="product-title">Teclado Mecânico Sem Fio Inteligente</h2>
+                    <span class="shopee-badge">Oferta Exclusiva</span>
+                    <h2 class="product-title">A IA e o Problema da Alucinação</h2>
                     <div class="product-price">R$ 5,22</div>
-                    <a href="https://www.amazon.com.br/dp/B0GMV4VB7L" target="_blank" class="btn-buy">Comprar!</a>
+                    <a href="#" target="_blank" class="btn-buy">Comprar!</a>
                 </div>
             </div>
 
-            <!-- PRODUTO 2 -->
             <div class="product-card">
-                <img src="minicamera.png">
+                <div class="product-image-container">
+                     <img src="http://googleusercontent.com/image_generation_content/183" alt="Câmaras A9" class="product-image">
+                </div>
                 <div class="product-details">
                     <span class="shopee-badge">Oferta Shopee</span>
-                    <h2 class="product-title">4 Câmeras A9 HD Mini com visão noturna Wifi - Vigilância</h2>
+                    <h2 class="product-title">4 Câmeras A9 HD Mini com visão noturna</h2>
                     <div class="product-price">R$ 19,59</div>
-                    <a href="https://s.shopee.com.br/8ATA62RSQ1" target="_blank" class="btn-buy">Comprar</a>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
-            <!-- PRODUTO 3 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Headset Anti-ruído" class="product-image">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Headset" class="product-image">
+                </div>
                 <div class="product-details">
                     <span class="shopee-badge">Oferta Shopee</span>
                     <h2 class="product-title">Headset com Cancelamento de Ruído</h2>
                     <div class="product-price">R$ 189,90</div>
-                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Ver na Shopee</a>
-                </div>
-            </div>
-
-            <!-- PRODUTO 4 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=500&q=80" alt="MacBook Hub" class="product-image">
-                <div class="product-details">
-                    <span class="shopee-badge">Oferta Shopee</span>
-                    <h2 class="product-title">Hub USB-C 8 em 1 Alta Velocidade</h2>
-                    <div class="product-price">R$ 95,00</div>
-                    <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="btn-buy">Ver na Shopee</a>
+                    <a href="#" target="_blank" class="btn-buy">Ver na Shopee</a>
                 </div>
             </div>
 
