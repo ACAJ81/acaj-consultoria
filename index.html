@@ -20,7 +20,7 @@
             --primary-blue: #0a2540;
             --accent-gold: #c5a059;
             --text-light: #ffffff;
-            --overlay: rgba(10, 37, 64, 0.8); /* Overlay para garantir leitura do texto */
+            --overlay: rgba(10, 37, 64, 0.8);
         }
 
         body, html {
@@ -96,7 +96,7 @@
 
         .nav-item:hover > a { color: var(--accent-gold); }
 
-        /* --- SUBMENUS --- */
+        /* --- SUBMENUS (Geral) --- */
         .submenu {
             position: absolute;
             top: 100%;
@@ -111,6 +111,10 @@
             transform: translateY(15px);
             transition: all 0.3s ease;
             border-top: 3px solid var(--accent-gold);
+        }
+
+        .submenu li {
+            position: relative; /* Necessário para que o 3º nível saiba onde se posicionar */
         }
 
         .submenu li a {
@@ -133,10 +137,41 @@
             transform: translateY(0);
         }
 
-        /* --- HERO SECTION COM O GLOBO --- */
+        /* --- AJUSTE: SUBMENU DE 3º NÍVEL (Hardware/Software) --- */
+        .submenu-3 {
+            position: absolute;
+            top: 0;
+            left: 100%; /* Empurra o menu para o lado direito do item pai */
+            background-color: white;
+            min-width: 200px;
+            list-style: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 0 4px 4px 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(15px);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--accent-gold); /* Diferencial visual lateral */
+        }
+
+        /* Indicador de seta para submenus */
+        .has-extra::after {
+            content: '▸';
+            float: right;
+            font-size: 10px;
+            color: var(--accent-gold);
+        }
+
+        /* Gatilho para o 3º nível */
+        .submenu li:hover > .submenu-3 {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* --- HERO SECTION --- */
         .main-hero {
             flex: 1;
-            /* Imagem do Globo com Conexões */
             background: linear-gradient(var(--overlay), var(--overlay)), 
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover;
@@ -200,7 +235,7 @@
 </head>
 <body>
 
- <header>
+    <header>
         <nav class="container">
             <div class="logo">ACAJ<span>.</span></div>
             <ul class="nav-links">
@@ -215,8 +250,8 @@
                 <li class="nav-item">
                     <a href="#">Prevenção</a>
                     <ul class="submenu">
-                        <li><a href="#">&&&&&</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Segurança Digital</a></li>
+                        <li><a href="#">Gestão de Riscos</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -230,7 +265,7 @@
                     <a href="financa.html">Finanças</a>
                     <ul class="submenu">
                         <li><a href="analise_do_mercado_financeiro.html">Análise do Mercado Financeiro</a></li>
-                        <li><a href="#">&&&&&</a></li>
+                        <li><a href="#">Investimentos</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -238,7 +273,7 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <!-- Submenu Computação com 3º nível -->
+                        <!-- Computação com novo submenu aninhado -->
                         <li>
                             <a href="#" class="has-extra">Computação</a>
                             <ul class="submenu-3">
@@ -262,7 +297,7 @@
                 Conectamos pessoas e instituições através de inteligência estratégica 
                 alinhada às reais necessidades.
             </p>
-            <p>Nossa Consultoria dedica-se continuamente em diagnosticar, solucionar e auxiliar em processos de gestão, riscos e governança, conhecendo os procedimentos internos de cada instituição. Compreendemos que todo o processo de Governar é ter responsabilidade e autoridade em tomar as decisões certas vinculantes a um dado sistema.</p>
+            <p>Nossa Consultoria dedica-se continuamente em diagnosticar, solucionar e auxiliar em processos de gestão, riscos e governança, conhecendo os procedimentos internos de cada instituição.</p>
         </div>
     </main>
 
