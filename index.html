@@ -54,12 +54,24 @@
             align-items: center;
         }
 
+        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none; /* Remove sublinhado se for link */
             color: white;
             font-size: 22px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
 
         .logo span { color: var(--accent-gold); }
@@ -114,7 +126,7 @@
         }
 
         .submenu li {
-            position: relative; /* Necessário para que o 3º nível saiba onde se posicionar */
+            position: relative; 
         }
 
         .submenu li a {
@@ -141,7 +153,7 @@
         .submenu-3 {
             position: absolute;
             top: 0;
-            left: 100%; /* Empurra o menu para o lado direito do item pai */
+            left: 100%; 
             background-color: white;
             min-width: 200px;
             list-style: none;
@@ -151,10 +163,9 @@
             visibility: hidden;
             transform: translateX(15px);
             transition: all 0.3s ease;
-            border-left: 3px solid var(--accent-gold); /* Diferencial visual lateral */
+            border-left: 3px solid var(--accent-gold); 
         }
 
-        /* Indicador de seta para submenus */
         .has-extra::after {
             content: '▸';
             float: right;
@@ -162,7 +173,6 @@
             color: var(--accent-gold);
         }
 
-        /* Gatilho para o 3º nível */
         .submenu li:hover > .submenu-3 {
             opacity: 1;
             visibility: visible;
@@ -237,7 +247,11 @@
 
     <header>
         <nav class="container">
-            <div class="logo">ACAJ<span>.</span></div>
+            <a href="index.html" class="logo">
+                <img src="Logo Tipo - ACAJ Consultoria.jpg" alt="Logo ACAJ Consultoria">
+                <div>ACAJ<span>.</span></div>
+            </a>
+            
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="index.html">Início</a>
@@ -273,7 +287,6 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <!-- Computação com novo submenu aninhado -->
                         <li>
                             <a href="#" class="has-extra">Computação</a>
                             <ul class="submenu-3">
