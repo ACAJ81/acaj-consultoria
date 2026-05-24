@@ -56,12 +56,24 @@
             align-items: center;
         }
 
+        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
             color: white;
             font-size: 22px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
 
         .logo span { color: var(--accent-gold); }
@@ -139,7 +151,7 @@
 
         /* NESTED SUBMENU (Nível 2 - Hardware/Software) */
         .has-nested > a::after {
-            content: '▸'; /* Seta para a direita no submenu */
+            content: '▸';
             float: right;
             font-size: 10px;
         }
@@ -147,7 +159,7 @@
         .nested-submenu {
             position: absolute;
             top: 0;
-            left: 100%; /* Posiciona ao lado do menu pai */
+            left: 100%;
             background-color: white;
             min-width: 200px;
             list-style: none;
@@ -190,7 +202,7 @@
         .card p { color: #666; font-size: 1rem; }
 
         .intuito { background-color: #f8fafc; padding: 80px 0; }
-        .intuito-container { background: white; padding: 60px 40px; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #eef2f6; }
+        .intintu-container { background: white; padding: 60px 40px; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #eef2f6; }
         .highlight-box { margin-top: 40px; padding: 35px; background-color: var(--primary-blue); color: white; border-left: 6px solid var(--accent-gold); font-style: italic; font-size: 1.3rem; line-height: 1.6; border-radius: 0 8px 8px 0; }
 
         footer { background-color: var(--primary-blue); color: white; padding: 40px 0; text-align: center; border-top: 2px solid var(--accent-gold); margin-top: auto; }
@@ -206,9 +218,13 @@
 </head>
 <body>
 
- <header>
+    <header>
         <nav class="container">
-            <div class="logo">ACAJ<span>.</span></div>
+            <a href="index.html" class="logo">
+                <img src="Logo Tipo - ACAJ Consultoria.png" alt="Logo ACAJ Consultoria">
+                <div>ACAJ<span>.</span></div>
+            </a>
+            
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="index.html">Início</a>
@@ -245,7 +261,6 @@
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
                         
-                        <!-- NOVO SUBMENU EM COMPUTAÇÃO -->
                         <li class="has-nested">
                             <a href="#">Computação</a>
                             <ul class="nested-submenu">
@@ -279,7 +294,7 @@
                 </div>
                 <div class="card">
                     <h3>O Comércio</h3>
-                    <p>A engenharia do Comércio é o sistema tático que neutraliza barreiras e riscos.</p>
+                    <p>A engenharia do Comércio é o system tático que neutraliza barreiras e riscos.</p>
                 </div>
                 <div class="card">
                     <h3>O Marketing</h3>
@@ -290,7 +305,7 @@
 
         <section class="intuito">
             <div class="container">
-                <div class="intuito-container">
+                <div class="intintu-container">
                     <h2 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 20px;">Nossa Missão</h2>
                     <div class="highlight-box">
                         "O intuito de nossa Consultoria é transformar a complexidade do mercado em clareza."
