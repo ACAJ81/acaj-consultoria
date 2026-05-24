@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,12 +56,24 @@
             align-items: center;
         }
 
+        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
             color: white;
             font-size: 22px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
 
         .logo span { color: var(--accent-gold); }
@@ -116,7 +128,7 @@
         }
 
         .submenu li {
-            position: relative; /* Base para o posicionamento do 3º nível */
+            position: relative; 
         }
 
         .submenu li a {
@@ -143,7 +155,7 @@
         .submenu-3 {
             position: absolute;
             top: 0;
-            left: 100%; /* Posiciona lateralmente à direita */
+            left: 100%; 
             background-color: white;
             min-width: 200px;
             list-style: none;
@@ -156,7 +168,6 @@
             border-left: 3px solid var(--accent-gold);
         }
 
-        /* Indicador de seta lateral */
         .has-extra::after {
             content: '▸';
             float: right;
@@ -285,7 +296,11 @@
 
     <header>
         <nav class="container">
-            <div class="logo">ACAJ<span>.</span></div>
+            <a href="index.html" class="logo">
+                <img src="Logo Tipo - ACAJ Consultoria.png" alt="Logo ACAJ Consultoria">
+                <div>ACAJ<span>.</span></div>
+            </a>
+
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="index.html">Início</a>
@@ -321,7 +336,6 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <!-- Item Computação com cascata lateral -->
                         <li>
                             <a href="#" class="has-extra">Computação</a>
                             <ul class="submenu-3">
