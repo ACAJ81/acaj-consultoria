@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,12 +56,24 @@
             align-items: center;
         }
 
+        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
             color: white;
             font-size: 22px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
 
         .logo span { color: var(--accent-gold); }
@@ -116,7 +128,7 @@
         }
 
         .submenu li {
-            position: relative; /* Necessário para alinhar o 3º nível a partir daqui */
+            position: relative; 
         }
 
         .submenu li a {
@@ -143,7 +155,7 @@
         .submenu-3 {
             position: absolute;
             top: 0;
-            left: 100%; /* Posiciona o menu ao lado direito do menu anterior */
+            left: 100%; 
             background-color: white;
             min-width: 200px;
             list-style: none;
@@ -153,17 +165,15 @@
             visibility: hidden;
             transform: translateX(15px);
             transition: all 0.3s ease;
-            border-left: 3px solid var(--accent-gold); /* Acabamento dourado na borda esquerda */
+            border-left: 3px solid var(--accent-gold); 
         }
 
-        /* Mostra o menu de 3º nível ao passar o mouse em cima de "Computação" */
         .submenu li:hover > .submenu-3 {
             opacity: 1;
             visibility: visible;
             transform: translateX(0);
         }
 
-        /* Seta lateral indicando que o menu expande para o lado */
         .has-extra::after {
             content: '▸';
             float: right;
@@ -245,6 +255,7 @@
             margin-bottom: 15px;
             color: var(--accent-gold);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* AVISO DE RISCO */
@@ -283,10 +294,10 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="Logo Tipo - ACAJ Consultoria.png" alt="Logo ACAJ Consultoria">
+                <img src="Logo Tipo - ACAJ Consultoria.jpg" alt="Logo ACAJ Consultoria">
                 <div>ACAJ<span>.</span></div>
             </a>
-            <div class="logo">ACAJ<span>.</span></div>
+            
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="index.html">Início</a>
