@@ -20,7 +20,7 @@
             --primary-blue: #0a2540;
             --accent-gold: #c5a059;
             --text-light: #ffffff;
-            --overlay: rgba(10, 37, 64, 0.8); /* Overlay para garantir leitura do texto */
+            --overlay: rgba(10, 37, 64, 0.8);
         }
 
         body, html {
@@ -96,7 +96,7 @@
 
         .nav-item:hover > a { color: var(--accent-gold); }
 
-        /* --- SUBMENUS --- */
+        /* --- SUBMENUS (Nível 2) --- */
         .submenu {
             position: absolute;
             top: 100%;
@@ -111,6 +111,10 @@
             transform: translateY(15px);
             transition: all 0.3s ease;
             border-top: 3px solid var(--accent-gold);
+        }
+
+        .submenu li {
+            position: relative; /* Necessário para ancorar o 3º nível */
         }
 
         .submenu li a {
@@ -133,10 +137,41 @@
             transform: translateY(0);
         }
 
-        /* --- HERO SECTION COM O GLOBO --- */
+        /* --- SUBMENU DE 3º NÍVEL (Hardware e Software) --- */
+        .submenu-3 {
+            position: absolute;
+            top: 0;
+            left: 100%; /* Posiciona à direita do menu anterior */
+            background-color: white;
+            min-width: 200px;
+            list-style: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 0 4px 4px 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(15px);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        /* Exibe o 3º nível ao passar o mouse no item pai (Computação) */
+        .submenu li:hover > .submenu-3 {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Pequena seta lateral para indicar que há mais itens */
+        .has-extra::after {
+            content: '▸';
+            float: right;
+            font-size: 10px;
+            color: var(--accent-gold);
+        }
+
+        /* --- HERO SECTION --- */
         .main-hero {
             flex: 1;
-            /* Imagem do Globo com Conexões */
             background: linear-gradient(var(--overlay), var(--overlay)), 
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover;
@@ -232,15 +267,23 @@
                         <li><a href="analise_do_mercado_financeiro.html">Análise do Mercado Financeiro</a></li>
                         <li><a href="#">&&&&&</a></li>
                     </ul>
-                     <li class="nav-item">
-                     <a href="tecnologia.html">Tecnologia</a>
-                     <ul class="submenu">
+                </li>
+                <li class="nav-item">
+                    <a href="tecnologia.html">Tecnologia</a>
+                    <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <li><a href="#">Computação</a></li>
+                        <!-- Submenu Computação com 3º nível -->
+                        <li>
+                            <a href="#" class="has-extra">Computação</a>
+                            <ul class="submenu-3">
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Software</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Inteligência Artificial</a></li>
-                   </ul>
-               </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -252,7 +295,7 @@
             <p>Estamos em um mundo contemporâneo, tudo passa mais depressa e a rapidez em tomar decisões precisas é a moeda de ouro do momento, é a garantia do processo inovador da civilização</p>
             <p>Hoje em dia, a Tecnologia tornou-se o núcleo da inteligência do mercado. Sua aplicação é a essência de todo o conhecimento gerado para resolver problemas e otimizar os processos humanos.</p>
             <p>Infraestrutura fundamental, a Tecnologia é o sustentáculo da comunicação cotidiana até sistemas complexos de análise.</p>
-          <br>
+            <br>
             <p>"O sucesso econômico de uma nação não depende mais do tamanho da força de trabalho braçal ou de reservas naturais, mas da infraestrutura digital e da capacidade das pessoas em interpretar análises complexas e criar soluções inovadoras."</p>
         </div>
     </main>
