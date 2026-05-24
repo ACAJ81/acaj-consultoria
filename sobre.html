@@ -56,12 +56,24 @@
             align-items: center;
         }
 
+        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
             color: white;
             font-size: 22px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
 
         .logo span { color: var(--accent-gold); }
@@ -115,7 +127,7 @@
             border-top: 3px solid var(--accent-gold);
         }
 
-        .submenu li { position: relative; } /* Essencial para o posicionamento do nível 2 */
+        .submenu li { position: relative; } 
 
         .submenu li a {
             color: var(--primary-blue);
@@ -222,9 +234,13 @@
 </head>
 <body>
 
-   <header>
+    <header>
         <nav class="container">
-            <div class="logo">ACAJ<span>.</span></div>
+            <a href="index.html" class="logo">
+                <img src="Logo Tipo - ACAJ Consultoria.png" alt="Logo ACAJ Consultoria">
+                <div>ACAJ<span>.</span></div>
+            </a>
+            
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="index.html">Início</a>
@@ -261,7 +277,6 @@
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
                         
-                        <!-- SUBMENU COMPUTACÃO ATUALIZADO -->
                         <li class="has-nested">
                             <a href="#">Computação</a>
                             <ul class="nested-submenu">
@@ -327,7 +342,7 @@
                         <p>Estamos em constante transformação para antecipar as necessidades do mercado.</p>
                     </div>
                     <div class="card-valor">
-                        <h4><span>4.</span> Excelência Técnica</h4>
+                        <h4><span>4.</span> Excelência Técnico</h4>
                         <p>Valorizamos o rigor, a qualidade e a competência em tudo o que entregamos.</p>
                     </div>
                     <div class="card-valor">
