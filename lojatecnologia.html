@@ -54,12 +54,24 @@
             align-items: center;
         }
 
+        /* AJUSTADO: Alinhamento e espaçamento idênticos às páginas anteriores */
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
             color: white;
             font-size: 22px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* AJUSTADO: Dimensionamento padrão da imagem da marca */
+        .logo img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
 
         .logo span { color: var(--accent-gold); }
@@ -114,7 +126,7 @@
         }
 
         .submenu li {
-            position: relative; /* Necessário para ancorar o 3º nível */
+            position: relative;
         }
 
         .submenu li a {
@@ -130,7 +142,7 @@
         .submenu-level-3 {
             position: absolute;
             top: 0;
-            left: 100%; /* Abre para o lado direito */
+            left: 100%;
             background-color: white;
             min-width: 200px;
             list-style: none;
@@ -142,7 +154,6 @@
             border-left: 3px solid var(--accent-gold);
         }
 
-        /* Indicador lateral para itens que possuem submenu */
         .has-submenu > a::after {
             content: '▸';
             float: right;
@@ -300,7 +311,11 @@
 
     <header>
         <nav class="container">
-            <div class="logo">ACAJ<span>.</span></div>
+            <a href="index.html" class="logo">
+                <img src="Logo Tipo - ACAJ Consultoria.png" alt="Logo ACAJ Consultoria">
+                <div>ACAJ<span>.</span></div>
+            </a>
+            
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="index.html">Início</a>
@@ -336,7 +351,6 @@
                     <ul class="submenu">
                         <li><a href="loja.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <!-- Item Computação agora possui submenus -->
                         <li class="has-submenu">
                             <a href="#">Computação</a>
                             <ul class="submenu-level-3">
@@ -359,9 +373,8 @@
 
     <main class="store-container">
         <div class="product-grid">
-            <!-- Os cards de produtos permanecem iguais conforme solicitado -->
             <div class="product-card">
-                <img src="capalivro.png">
+                <img src="capalivro.png" class="product-image" alt="Livro A IA e o Problema da Alucinação">
                 <div class="product-details">
                     <span class="shopee-badge">Oferta Exclusiva</span>
                     <h2 class="product-title">Livro: A IA e o Problema da Alucinação</h2>
@@ -371,7 +384,7 @@
             </div>
 
             <div class="product-card">
-                <img src="minicamera.png" alt="Câmeras A9">
+                <img src="minicamera.png" class="product-image" alt="Câmeras A9">
                 <div class="product-details">
                     <span class="shopee-badge">Oferta Shopee</span>
                     <h2 class="product-title">4 Câmeras A9 HD Mini com visão noturna Wifi - Vigilância</h2>
@@ -381,7 +394,7 @@
             </div>
 
             <div class="product-card">
-                <img src="drone.png" alt="Drone Mini">
+                <img src="drone.png" class="product-image" alt="Drone Mini">
                 <div class="product-details">
                     <span class="shopee-badge">Oferta Shopee</span>
                     <h2 class="product-title">Dli Drone Mini E99 Pro Camera 4k Com 1 Bateria Wi-fi Preto</h2>
