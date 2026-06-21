@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O que é Inteligência Comercial | ACAJ Consultoria</title>
+    <title>O que é Inteligência Comercial | ACAJ Informática</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -56,7 +56,6 @@
             align-items: center;
         }
 
-        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
             display: flex;
             align-items: center;
@@ -69,7 +68,6 @@
             text-transform: uppercase;
         }
 
-        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
         .logo img {
             height: 35px;
             width: auto;
@@ -149,17 +147,24 @@
             transform: translateY(0);
         }
 
-        /* NESTED SUBMENU (Nível 2 - Hardware/Software) */
+        /* --- SUBMENU LATERAL (Nível 2 - Computação) --- */
+        .has-nested > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .has-nested > a::after {
             content: '▸';
-            float: right;
             font-size: 10px;
+            margin-left: 10px;
+            color: var(--accent-gold);
         }
 
         .nested-submenu {
             position: absolute;
             top: 0;
-            left: 100%;
+            left: 100%; /* Abre exatamente ao lado direito */
             background-color: white;
             min-width: 200px;
             list-style: none;
@@ -169,8 +174,10 @@
             transform: translateX(10px);
             transition: all 0.3s ease;
             border-left: 3px solid var(--accent-gold);
+            border-top: none;
         }
 
+        /* Ativa o submenu lateral */
         .has-nested:hover .nested-submenu {
             opacity: 1;
             visibility: visible;
@@ -239,15 +246,16 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <li>
-                            <li class="has-submenu">
-                              <a href="#">Computação</a>
-                              <ul class="submenu-level-3">
-                               <li><a href="#">Hardware</a></li>
-                               <li><a href="#">Software</a></li>
-                               <li><a href="#">Network</a></li>
+                        
+                        <li class="has-nested">
+                            <a href="#">Computação</a>
+                            <ul class="nested-submenu">
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Software</a></li>
+                                <li><a href="#">Network</a></li>
                             </ul>
-                         </li>
+                        </li>
+                        
                         <li><a href="#">Inteligência Artificial</a></li>
                     </ul>
                 </li>
@@ -273,7 +281,7 @@
                         <li><a href="medicina_preventiva_blogs.html">Blogs</a></li>
                     </ul>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </header>
 
@@ -295,7 +303,7 @@
                 </div>
                 <div class="card">
                     <h3>O Comércio</h3>
-                    <p>A engenharia do Comércio é o system tático que neutraliza barreiras e riscos.</p>
+                    <p>A engenharia do Comércio é o sistema tático que neutraliza barreiras e riscos.</p>
                 </div>
                 <div class="card">
                     <h3>O Marketing</h3>
