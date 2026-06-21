@@ -54,7 +54,6 @@
             align-items: center;
         }
 
-        /* AJUSTADO: Alinhamento e espaçamento idênticos à primeira página */
         .logo {
             display: flex;
             align-items: center;
@@ -67,7 +66,6 @@
             text-transform: uppercase;
         }
 
-        /* AJUSTADO: Dimensionamento correto da imagem do logotipo */
         .logo img {
             height: 35px;
             width: auto;
@@ -172,9 +170,14 @@
             transform: translateX(0);
         }
 
-        .has-extra::after {
+        .has-extra > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .has-extra > a::after {
             content: '▸';
-            float: right;
             font-size: 10px;
             color: var(--accent-gold);
         }
@@ -266,15 +269,16 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <li>
-                            <li class="has-submenu">
-                              <a href="#">Computação</a>
-                              <ul class="submenu-level-3">
-                               <li><a href="#">Hardware</a></li>
-                               <li><a href="#">Software</a></li>
-                               <li><a href="#">Network</a></li>
+                        
+                        <li class="has-extra">
+                            <a href="#">Computação</a>
+                            <ul class="submenu-3">
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Software</a></li>
+                                <li><a href="#">Network</a></li>
                             </ul>
-                         </li>
+                        </li>
+                        
                         <li><a href="#">Inteligência Artificial</a></li>
                     </ul>
                 </li>
@@ -300,7 +304,7 @@
                         <li><a href="medicina_preventiva_blogs.html">Blogs</a></li>
                     </ul>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </header>
 
@@ -309,7 +313,7 @@
             <div class="divider"></div>
             <h1>Tecnologia</h1>
             <p>Estamos em um mundo contemporâneo, tudo passa mais depressa e a rapidez em tomar decisões precisas é a moeda de ouro do momento, é a garantia do processo inovador da civilização</p>
-            <p>Hoje em dia, a Tecnologia tornou-se o núcleo da inteligência do mercado. Sua aplicação é a essencia de todo o conhecimento gerado para resolver problemas e otimizar os processos humanos.</p>
+            <p>Hoje em dia, a Tecnologia tornou-se o núcleo da inteligência do mercado. Sua aplicação é a essência de todo o conhecimento gerado para resolver problemas e otimizar os processos humanos.</p>
             <p>Infraestrutura fundamental, a Tecnologia é o sustentáculo da comunicação cotidiana até sistemas complexos de análise.</p>
             <br>
             <p>"O sucesso econômico de uma nação não depende mais do tamanho da força de trabalho braçal ou de reservas naturais, mas da infraestrutura digital e da capacidade das pessoas em interpretar análises complexas e criar soluções inovadoras."</p>
