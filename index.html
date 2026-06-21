@@ -277,6 +277,42 @@
     margin-left: 10px;
     color: var(--accent-gold);
 }
+        /* Item que possui submenu lateral */
+.has-submenu {
+    position: relative;
+}
+
+/* Submenu lateral */
+.submenu-level-3 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #fff;
+    min-width: 220px;
+    list-style: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all .3s ease;
+    border-left: 3px solid var(--accent-gold);
+    z-index: 1000;
+}
+
+/* Exibe o submenu ao passar o mouse */
+.has-submenu:hover > .submenu-level-3 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Seta indicando submenu */
+.has-submenu > a::after {
+    content: "▸";
+    float: right;
+    margin-left: 10px;
+    color: var(--accent-gold);
+}
     </style>
 </head>
 <body>
