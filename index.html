@@ -241,6 +241,42 @@
             .hero-content h1 { font-size: 2.2rem; }
             .hero-content p { font-size: 1.1rem; }
         }
+        /* Item que possui submenu lateral */
+.has-submenu {
+    position: relative;
+}
+
+/* Submenu lateral */
+.submenu-level-3 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #fff;
+    min-width: 220px;
+    list-style: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all .3s ease;
+    border-left: 3px solid var(--accent-gold);
+    z-index: 1000;
+}
+
+/* Exibe o submenu ao passar o mouse */
+.has-submenu:hover > .submenu-level-3 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Seta indicando submenu */
+.has-submenu > a::after {
+    content: "▸";
+    float: right;
+    margin-left: 10px;
+    color: var(--accent-gold);
+}
     </style>
 </head>
 <body>
@@ -268,12 +304,12 @@
                         <li><a href="#">Inovação</a></li>
                         <li>
                             <li class="has-submenu">
-                              <a href="#">Computação</a>
-                              <ul class="submenu-level-3">
-                               <li><a href="#">Hardware</a></li>
-                               <li><a href="#">Software</a></li>
-                               <li><a href="#">Network</a></li>
-                            </ul>
+                            <a href="#">Computação</a>
+                            <ul class="submenu-level-3">
+                            <li><a href="#">Hardware</a></li>
+                            <li><a href="#">Software</a></li>
+                            <li><a href="#">Network</a></li>
+                          </ul>
                          </li>
                         <li><a href="#">Inteligência Artificial</a></li>
                     </ul>
