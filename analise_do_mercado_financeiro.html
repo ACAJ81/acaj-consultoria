@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise Técnico | ACAJ Informática</title>
+    <title>Análise Técnica | ACAJ Informática</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -56,7 +56,6 @@
             align-items: center;
         }
 
-        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
             display: flex;
             align-items: center;
@@ -69,7 +68,6 @@
             text-transform: uppercase;
         }
 
-        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
         .logo img {
             height: 35px;
             width: auto;
@@ -174,9 +172,14 @@
             transform: translateX(0);
         }
 
-        .has-extra::after {
+        .has-extra > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .has-extra > a::after {
             content: '▸';
-            float: right;
             font-size: 10px;
             color: var(--accent-gold);
         }
@@ -312,15 +315,16 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <li>
-                            <li class="has-submenu">
-                              <a href="#">Computação</a>
-                              <ul class="submenu-level-3">
-                               <li><a href="#">Hardware</a></li>
-                               <li><a href="#">Software</a></li>
-                               <li><a href="#">Network</a></li>
+                        
+                        <li class="has-extra">
+                            <a href="#">Computação</a>
+                            <ul class="submenu-3">
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Software</a></li>
+                                <li><a href="#">Network</a></li>
                             </ul>
-                         </li>
+                        </li>
+                        
                         <li><a href="#">Inteligência Artificial</a></li>
                     </ul>
                 </li>
@@ -346,7 +350,7 @@
                         <li><a href="medicina_preventiva_blogs.html">Blogs</a></li>
                     </ul>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </header>
     
