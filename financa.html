@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finança | ACAJ Informática</title>
+    <title>ACAJ | Inovação e Impacto</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -19,31 +19,29 @@
         :root {
             --primary-blue: #0a2540;
             --accent-gold: #c5a059;
-            --text-dark: #333;
             --text-light: #ffffff;
-            --bg-light: #f4f7f9;
+            --overlay: rgba(10, 37, 64, 0.8);
         }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.7;
+        body, html {
+            height: 100%;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            background-color: var(--primary-blue);
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* --- HEADER & NAVIGATION (PADRÃO ACAJ) --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             background: var(--primary-blue);
             padding: 15px 0;
-            border-bottom: 2px solid var(--accent-gold);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
             position: fixed;
             width: 100%;
             top: 0;
@@ -56,7 +54,6 @@
             align-items: center;
         }
 
-        /* AJUSTADO: Alinhamento flex para o logotipo e texto ficarem lado a lado */
         .logo {
             display: flex;
             align-items: center;
@@ -69,7 +66,6 @@
             text-transform: uppercase;
         }
 
-        /* NOVO: Controla o tamanho e proporção da imagem do logotipo */
         .logo img {
             height: 35px;
             width: auto;
@@ -118,7 +114,7 @@
             background-color: white;
             min-width: 220px;
             list-style: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             border-radius: 0 0 4px 4px;
             opacity: 0;
             visibility: hidden;
@@ -133,7 +129,7 @@
 
         .submenu li a {
             color: var(--primary-blue);
-            padding: 12px 20px;
+            padding: 15px 20px;
             display: block;
             text-decoration: none;
             font-size: 13px;
@@ -168,133 +164,91 @@
             border-left: 3px solid var(--accent-gold);
         }
 
-        .has-extra::after {
-            content: '▸';
-            float: right;
-            font-size: 10px;
-            color: var(--accent-gold);
-        }
-
         .submenu li:hover > .submenu-3 {
             opacity: 1;
             visibility: visible;
             transform: translateX(0);
         }
 
-        /* --- HERO INTERNA --- */
-        .hero-interna {
-            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+        .has-extra > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .has-extra > a::after {
+            content: '▸';
+            font-size: 10px;
+            color: var(--accent-gold);
+        }
+
+        /* --- HERO SECTION --- */
+        .main-hero {
+            flex: 1;
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover;
             background-position: center;
-            padding: 140px 0 80px;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             color: white;
+            padding-top: 80px;
         }
 
-        .hero-interna h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
             font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .hero-interna p {
-            font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
+        .hero-content p {
+            font-size: 1.4rem;
             font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.95;
         }
 
-        /* --- SEÇÕES --- */
-        section { padding: 80px 0; }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            color: var(--primary-blue);
-            position: relative;
-            padding-bottom: 15px;
+        .divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 0 auto 30px;
         }
-
-        .section-title::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: var(--accent-gold);
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* GRID CARDS */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-blue);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-top-color: var(--accent-gold);
-        }
-
-        .card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card p { color: #666; font-size: 0.95rem; }
-
-        /* DESTAQUE SUSTENTÁVEL */
-        .foco-sustentavel {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            max-width: 850px;
-            margin: 0 auto;
-            border-left: 6px solid var(--accent-gold);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
-        }
-
-        .foco-sustentavel h2 { color: var(--primary-blue); margin-bottom: 15px; }
 
         /* --- FOOTER --- */
         footer {
             background-color: var(--primary-blue);
             color: white;
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
-            border-top: 2px solid var(--accent-gold);
-            margin-top: auto;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .footer-brand { color: var(--accent-gold); font-weight: 700; margin-bottom: 5px; }
-        .footer-copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 15px; display: block; }
+        .footer-tagline { font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px; }
+        .footer-copyright { font-size: 0.75rem; opacity: 0.4; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-interna h1 { font-size: 2rem; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-   <header>
+    <header>
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="Logo Tipo - ACAJ Consultoria.png" alt="Logo ACAJ Consultoria">
@@ -315,15 +269,16 @@
                     <ul class="submenu">
                         <li><a href="lojatecnologia.html">Loja</a></li>
                         <li><a href="#">Inovação</a></li>
-                        <li>
-                            <li class="has-submenu">
-                              <a href="#">Computação</a>
-                              <ul class="submenu-level-3">
-                               <li><a href="#">Hardware</a></li>
-                               <li><a href="#">Software</a></li>
-                               <li><a href="#">Network</a></li>
+                        
+                        <li class="has-extra">
+                            <a href="#">Computação</a>
+                            <ul class="submenu-3">
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Software</a></li>
+                                <li><a href="#">Network</a></li>
                             </ul>
-                         </li>
+                        </li>
+                        
                         <li><a href="#">Inteligência Artificial</a></li>
                     </ul>
                 </li>
@@ -349,74 +304,29 @@
                         <li><a href="medicina_preventiva_blogs.html">Blogs</a></li>
                     </ul>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="hero-interna">
-            <div class="container">
-                <h1>Gestão Financeira e Valor Agregado</h1>
-                <p>
-                    Controlar de forma eficaz o planejamento e a análise de investimentos é o pilar para o desenvolvimento. 
-                    Otimizar o valor agregado garante retorno positivo e solidez competitiva.
-                </p>
-            </div>
-        </section>
-
-        <section class="container">
+    <main class="main-hero">
+        <div class="hero-content">
+            <div class="divider"></div>
+            <h1>Tecnologia</h1>
+            <p>Estamos em um world contemporâneo, tudo passa mais depressa e a rapidez em tomar decisões precisas é a moeda de ouro do momento, é a garantia do processo inovador da civilização.</p>
+            <p>Hoje em dia, a Tecnologia tornou-se o núcleo da inteligência do mercado. Sua aplicação é a essência de todo o conhecimento gerado para resolver problemas e otimizar os processos humanos.</p>
+            <p>Infraestrutura fundamental, a Tecnologia é o sustentáculo da comunicação cotidiana até sistemas complexos de análise.</p>
             <br>
-            <h2 class="section-title">Pilares da Inteligência Econômica</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <h3>Mercado e Política</h3>
-                    <p>As interações financeiras ocorrem em função das informações mundiais. Regulações e tendências definem o fluxo de produtos.</p>
-                </div>
-                <div class="card">
-                    <h3>Equilíbrio Competitivo</h3>
-                    <p>Estabelecer preços cria relações estáveis de consumo. O equilíbrio entre produtos finais e fatores de produção é o que sustenta o mercado financeiro.</p>
-                </div>
-                <div class="card">
-                    <h3>Evolução Tecnológica</h3>
-                    <p>O sistema evolui através da tecnologia atual. A eficiência em cronometrar e dispor recursos é o que garante a verdadeira evolução econômica.</p>
-                </div>
-            </div>
-        </section>
-
-        <section style="background-color: #f8fafc;">
-            <div class="container">
-                <h2 class="section-title">Produção e Gestão de Escassez</h2>
-                <div class="grid-container">
-                    <div class="card">
-                        <h3>Processo Produtivo</h3>
-                        <p>A produção transforma insumos em valor. Organizar este processo resulta em baixo custo e incremento real na oferta de bens e serviços.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Risco e Matéria-Prima</h3>
-                        <p>A escassez dita o tempo da produção. Gerir a matéria-prima principal é mitigar riscos que alteram toda a característica da cadeia de suprimentos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="foco-sustentavel">
-                <h2>Transformação Sustentável</h2>
-                <p>
-                    A Economia atende às necessidades de sobrevivência e de transformação sustentável dos recursos. 
-                    O bem-estar determina a eficiência em alocar atividades. 
-                    Quando a produção expande sem aumentar custos, a economia avança verdadeiramente.
-                </p>
-            </div>
-        </section>
-        <br>
+            <p>"O sucesso econômico de uma nação não depende mais do tamanho da força de trabalho braçal ou de reservas naturais, mas da infraestrutura digital e da capacidade das pessoas em interpretar análises complexas e criar soluções inovadoras."</p>
+        </div>
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-brand">ACAJ Informática</div>
-            <div>Inovação Tecnológica com Inteligência Estratégica</div>
-            <span class="footer-copyright">© 2026 ACAJ. Todos os direitos reservados.</span>
+            <div class="footer-tagline">Inovação Tecnológica com Inteligência Estratégica</div>
+            <div class="footer-copyright">
+                © 2026 ACAJ. Todos os direitos reservados.
+            </div>
         </div>
     </footer>
 
