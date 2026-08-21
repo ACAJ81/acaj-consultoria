@@ -1,1 +1,1 @@
-# acaj-consultoria
+# acaj-informática
